@@ -63,7 +63,8 @@ const LoginPage = () => {
         type='number'
         control={control}
         rules={{
-          required: 'L\'identifiant est obligatoire'
+          required: 'L\'identifiant est obligatoire',
+          minLength: {value: 10, message: 'L\'identifiant dois faire 10 caractères minimum'}
         }}
       />
       {/* MOT DE PASSE */}
