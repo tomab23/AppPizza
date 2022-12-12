@@ -7,8 +7,7 @@ import CustomInput from '../components/CustomInput'
 import { useNavigation } from '@react-navigation/native'
 import { NativeStackNavigationProp } from '@react-navigation/native-stack'
 import { RouteParams } from '../Routes/RootNavigator'
-import { Controller, Field, useForm } from 'react-hook-form'
-import User from '../models/User'
+import { useForm } from 'react-hook-form'
 import UserService from '../service/UserService'
 import AuthenticationService from '../service/AuthenticationService'
 
@@ -16,6 +15,8 @@ import AuthenticationService from '../service/AuthenticationService'
 const New = () => {
 
     const navigation = useNavigation<NativeStackNavigationProp<RouteParams>>();
+
+    const [chargement, setChargement] = useState('');
     
 
     const {
@@ -39,7 +40,10 @@ const New = () => {
 
     // Ajoute l'utilisateur a la base de donnée + connecte l'utilisateur a l'application
     const Creation = (data: any) => {
+        setChargement('Chargement. . .');
        UserService.addUser(data).then(login);
+
+       
 
     }
 
@@ -55,7 +59,8 @@ const New = () => {
           control={control}
           rules={{
             required: 'Votre nom est obligatoire',
-            minLength: {value: 2, message: 'Le nom doit contenir au minimum 2 caractères'}
+            minLength: {value: 2, message: 'Le nom doit contenir au minimum 2 caractères'},
+            maxLength: {value: 120, message: 'Le nom est trop long'}
           }}
         />
 
@@ -67,7 +72,8 @@ const New = () => {
           control={control}
           rules={{
             required: 'Votre prénom est obligatoire',
-            minLength: {value: 2, message: 'Le prénom doit contenir au minimum 2 caractères'}
+            minLength: {value: 2, message: 'Le prénom doit contenir au minimum 2 caractères'},
+            maxLength: {value: 120, message: 'Le prenom est trop long'}
           }}      
         />
 
@@ -81,7 +87,8 @@ const New = () => {
         control={control}
         rules={{
           required: 'Le mot de passe est obligatoire',
-          minLength: {value: 6, message: 'Le mot de passe dois faire 6 caractères minimum'}      
+          minLength: {value: 6, message: 'Le mot de passe dois faire 6 caractères minimum'},
+          maxLength: {value: 120, message: 'Le mot de passe est trop long'}     
       }}         
         />
 
@@ -96,6 +103,7 @@ const New = () => {
         rules={{
           required: 'Confirmer le mot de passe est obligatoire',
           minLength: {value: 6, message: 'Le mot de passe dois faire 6 caractères minimum'},
+          maxLength: {value: 120, message: 'Le mot de passe est trop long'},
           validate: (value: string) => value === mdp ? true : 'Le mot de passe ne correspond pas'
         }}         
         />
@@ -108,7 +116,8 @@ const New = () => {
           placeholder='Téléphone' 
           control={control}
           rules={{required: 'Le numéro de téléphone est obligatoire',
-          minLength: {value: 10, message: 'Le numéro dois faire 10 caractères minimum'},}} 
+          minLength: {value: 10, message: 'Le numéro dois faire 10 caractères minimum'},
+          maxLength: {value: 20, message: 'Le numéro est trop long'}}} 
         />
 
         {/* ADRESSE */}
@@ -118,7 +127,8 @@ const New = () => {
           type='adresse'
           placeholder='Votre Adresse pour la livraison' 
           control={control}
-          rules={{required: 'L\'adresse est obligatoire'}}         
+          rules={{required: 'L\'adresse est obligatoire',
+          maxLength: {value: 120, message: 'L\'adresse est trop longue'}}}      
         />
 
         {/* BOUTON  VALIDER */}
@@ -129,6 +139,7 @@ const New = () => {
             align='flex-end'
             onPress={handleSubmit((data) => Creation(data))}
         />  
+        <Text style={{color: '#feca57', fontSize: 20}}>{chargement}</Text>
     </ScrollView>
     </View>
   )

@@ -17,7 +17,7 @@ public class UserMapper {
 	
 	/**
 	 * 
-	 * @param password, {@link User} password
+	 * @param password, User password
 	 * @return method to crypt password
 	 */
 	public static String encoder(String password) {
@@ -28,8 +28,8 @@ public class UserMapper {
 
 	/**
 	 * 
-	 * @param use, {@link User} entity
-	 * @return dto, {@link UserDTO}
+	 * @param use, User entity
+	 * @return dto, UserDTO
 	 */
 	public static UserDTO toDto(User use) {
 		UserDTO dto = new UserDTO();
@@ -46,8 +46,8 @@ public class UserMapper {
 
 	/**
 	 * 
-	 * @param dto, {@link UserDTO}
-	 * @return use, {@link User} entity
+	 * @param dto, UserDTO
+	 * @return use, User entity
 	 */
 	public static User toEntity(UserDTO dto) {
 		User use = new User();

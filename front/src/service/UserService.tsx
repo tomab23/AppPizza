@@ -5,8 +5,7 @@ import AuthenticationService from "./AuthenticationService";
 export default class UserService {
 
 static async addUser(user: User): Promise<User> {
-  // 192.168.1.138
-    return fetch(`http://192.168.1.14:8080/auth/add`, {
+    return fetch(`http://192.168.1.142:8080/auth/add`, {
       method: 'POST',
       body: JSON.stringify(user),
       headers: { 'Content-Type': 'application/json', 'Authorization': AuthenticationService.jwt}

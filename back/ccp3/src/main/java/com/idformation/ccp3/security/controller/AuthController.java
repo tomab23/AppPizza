@@ -38,7 +38,7 @@ public class AuthController {
 	JwtProvider tokenProvider;
 
 	@Autowired
-	IUserService userService;
+	private IUserService userService;
 
 	/**
 	 * 

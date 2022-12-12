@@ -1,10 +1,8 @@
 import { Pressable, StyleSheet, Text, View } from 'react-native'
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import { useNavigation } from '@react-navigation/native';
 import { RouteParams } from '../Routes/RootNavigator';
-import OrderLineService from '../service/OrderLineService';
-import OrderLine from '../models/OrderLine';
 
 
 
@@ -12,23 +10,15 @@ const Footer = () => {
 
     const navigation = useNavigation<NativeStackNavigationProp<RouteParams>>();
 
-    const ConfirmButton = (data: any) => {
-
-        OrderLineService.addLine(data)
+    const ConfirmButton = () => {
         navigation.navigate('Final')
       }
 
 
-      // const reducer = (accumulator: any, currentValue: any) => accumulator + currentValue;
-      // const total = tab.reduce(reducer)
-
-
   return (
     <View style={styles.footer}>
-        <Text style={styles.textPrix}> Total: FREE
-        {/* € */}
-        </Text>
-        <Pressable style={styles.valider} onPress={(data) => ConfirmButton(data)}>
+        <Text style={styles.textPrix}> Total:  € </Text>
+        <Pressable style={styles.valider} onPress={ConfirmButton}>
             <Text style={styles.textValider}>Valider</Text>
         </Pressable>
     </View>

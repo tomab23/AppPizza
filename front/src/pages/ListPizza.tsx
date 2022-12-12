@@ -5,8 +5,13 @@ import CardPizza from '../components/CardPizza';
 import Pizza from '../models/Pizza';
 import PizzaService from '../service/PizzaService';
 import Footer from '../components/Footer';
+import {CommonActions, useNavigation } from '@react-navigation/native';
+import { NativeStackNavigationProp } from '@react-navigation/native-stack';
+import { RouteParams } from '../Routes/RootNavigator';
 
 const ListPizza = () => {
+
+  const navigation = useNavigation<NativeStackNavigationProp<RouteParams>>();
 
 
     const [pizzas, setPizzas] = useState<Pizza[]>([]);
@@ -17,6 +22,10 @@ const ListPizza = () => {
 
     console.log(pizzas)
 
+    useEffect(() => {
+      console.warn('test')
+    }, [])
+
 
     const wait = (timeout: number) => {
       return new Promise(resolve => setTimeout(resolve, timeout));
@@ -26,6 +35,11 @@ const ListPizza = () => {
 
     const onRefresh = useCallback(() => {
       setRefreshing(true);
+      const resetAction = CommonActions.reset({
+        index: 0,
+        routes: [{ name: "Pizza" }]
+      });
+      navigation.dispatch(resetAction);
       wait(2000).then(() => setRefreshing(false));
     }, []);
 

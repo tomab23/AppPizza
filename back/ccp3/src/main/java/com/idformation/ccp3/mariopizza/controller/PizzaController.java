@@ -13,7 +13,11 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.idformation.ccp3.mariopizza.dto.PizzaDTO;
 import com.idformation.ccp3.mariopizza.mapper.PizzaMapper;
+import com.idformation.ccp3.mariopizza.service.IOrderService;
 import com.idformation.ccp3.mariopizza.service.IPizzaService;
+import com.idformation.ccp3.security.jwt.JwtAuthenticationFilter;
+import com.idformation.ccp3.security.jwt.JwtProvider;
+import com.idformation.ccp3.security.service.UserDetailsServiceImpl;
 
 /**
  * @author Stagiaire
@@ -26,7 +30,21 @@ import com.idformation.ccp3.mariopizza.service.IPizzaService;
 public class PizzaController {
 
 	@Autowired
-	IPizzaService pizzaService;
+	private IPizzaService pizzaService;
+
+	@Autowired
+	private IOrderService orderService;
+
+	@Autowired
+	private JwtProvider jwtProvider;
+
+	@Autowired
+	private JwtAuthenticationFilter jwtAuthenticationFilter;
+
+	@Autowired
+	private UserDetailsServiceImpl userService;
+	
+
 
 	/**
 	 * 
@@ -36,5 +54,21 @@ public class PizzaController {
 	public List<PizzaDTO> getAllPizzas() {
 		return PizzaMapper.ListToListDto(pizzaService.getPizzas());
 	}
+
+//	@PostMapping
+//	void saveOrder(@RequestBody List<OrderDTO> orders, HttpServletRequest request) {
+//
+//		// 1: On identifie le user par le jwt
+//	(loadUserByUsername ? )
+//		User user = userService.loadUserByUsername(
+//				jwtProvider.getUserUsernameFromJWT(jwtAuthenticationFilter.getJwtFromRequest(request)));
+//
+//		// 2: creation order pour le requestBody
+//		Order order = OrderMapper.toEntity(orders);
+//		order.setUser(user)
+//
+//		// 3: sauvegarder order
+//		orderService.saveOrder(order);
+//	}
 
 }

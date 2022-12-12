@@ -8,12 +8,9 @@ export default class AuthenticationService {
 
     static jwt: string;
 
-    
-  
     static async getJwt(login: LoginRequest): Promise<any> {
       try {
-        // 192.168.1.138
-        const response = await fetch(`http://192.168.1.14:8080/auth/signin`, {
+        const response = await fetch(`http://192.168.1.142:8080/auth/signin`, {
           method: 'POST',
           body: JSON.stringify(login),
           headers: { 'Content-Type': 'application/json' }

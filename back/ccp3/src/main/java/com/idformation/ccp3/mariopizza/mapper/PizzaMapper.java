@@ -16,12 +16,14 @@ import com.idformation.ccp3.mariopizza.models.Pizza;
 public class PizzaMapper {
 
 	/**
+	 * Transform Entity to DTO
 	 * 
 	 * @param piz, Pizza entity
 	 * @return dto, Pizza to PizzaDTO
 	 */
 	public static PizzaDTO toDto(Pizza piz) {
 		PizzaDTO dto = new PizzaDTO();
+
 
 		dto.setId(piz.getId());
 		dto.setName(piz.getName());
@@ -33,6 +35,7 @@ public class PizzaMapper {
 	}
 
 	/**
+	 * Transform DTO to Entity
 	 * 
 	 * @param dto, PizzaDTO
 	 * @return piz, PizzaDTO to Pizza entity
@@ -50,6 +53,7 @@ public class PizzaMapper {
 	}
 
 	/**
+	 * Transform List of Entity to List of DTO
 	 * 
 	 * @param pizs, List of Pizza
 	 * @return dtos, List of Pizza to List of PizzaDTO

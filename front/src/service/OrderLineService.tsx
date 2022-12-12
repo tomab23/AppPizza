@@ -5,8 +5,7 @@ import AuthenticationService from "./AuthenticationService";
 export default class OrderLineService {
 
     static async addLine(line: OrderLine): Promise<OrderLine> {
-      // 192.168.1.138
-        return fetch(`http://192.168.1.14:8080/auth/add`, {
+        return fetch(`http://192.168.1.142:8080/auth/add`, {
           method: 'POST',
           body: JSON.stringify(line),
           headers: { 'Content-Type': 'application/json', 'Authorization': AuthenticationService.jwt}
