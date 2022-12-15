@@ -3,10 +3,8 @@
  */
 package com.idformation.ccp3.mariopizza.service.impl;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.idformation.ccp3.mariopizza.repository.IOrderRepository;
 import com.idformation.ccp3.mariopizza.service.IOrderService;
 
 /**
@@ -16,7 +14,18 @@ import com.idformation.ccp3.mariopizza.service.IOrderService;
 @Service("OrderService")
 public class OrderService implements IOrderService {
 
-	@Autowired
-	private IOrderRepository orderRepo;
+//	@Autowired
+//	private IOrderRepository orderRepo;
+
+//	@Override
+//	public Order saveOrder(Order order) {
+//		Order save = orderRepo.save(order);
+//
+//		save.setTotalAmount(orderRepo.computeAmount(save.getId()));
+//
+//		orderRepo.save(save);
+//
+//		return save;
+//	}
 
 }

@@ -13,11 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.idformation.ccp3.mariopizza.dto.PizzaDTO;
 import com.idformation.ccp3.mariopizza.mapper.PizzaMapper;
-import com.idformation.ccp3.mariopizza.service.IOrderService;
 import com.idformation.ccp3.mariopizza.service.IPizzaService;
-import com.idformation.ccp3.security.jwt.JwtAuthenticationFilter;
-import com.idformation.ccp3.security.jwt.JwtProvider;
-import com.idformation.ccp3.security.service.UserDetailsServiceImpl;
 
 /**
  * @author Stagiaire
@@ -32,17 +28,17 @@ public class PizzaController {
 	@Autowired
 	private IPizzaService pizzaService;
 
-	@Autowired
-	private IOrderService orderService;
-
-	@Autowired
-	private JwtProvider jwtProvider;
-
-	@Autowired
-	private JwtAuthenticationFilter jwtAuthenticationFilter;
-
-	@Autowired
-	private UserDetailsServiceImpl userService;
+//	@Autowired
+//	private IOrderService orderService;
+//
+//	@Autowired
+//	private JwtProvider jwtProvider;
+//
+//	@Autowired
+//	private JwtAuthenticationFilter jwtAuthenticationFilter;
+//
+//	@Autowired
+//	private UserDetailsServiceImpl userService;
 	
 
 
@@ -59,15 +55,14 @@ public class PizzaController {
 //	void saveOrder(@RequestBody List<OrderDTO> orders, HttpServletRequest request) {
 //
 //		// 1: On identifie le user par le jwt
-//	(loadUserByUsername ? )
-//		User user = userService.loadUserByUsername(
-//				jwtProvider.getUserUsernameFromJWT(jwtAuthenticationFilter.getJwtFromRequest(request)));
+//		User user = userService
+//				.findByUsername(jwtProvider.getUserUsernameFromJWT(jwtAuthenticationFilter.getJwtFromRequest(request)));
 //
 //		// 2: creation order pour le requestBody
 //		Order order = OrderMapper.toEntity(orders);
-//		order.setUser(user)
+//		order.setUser(user);
 //
-//		// 3: sauvegarder order
+////		 3: sauvegarder order
 //		orderService.saveOrder(order);
 //	}
 

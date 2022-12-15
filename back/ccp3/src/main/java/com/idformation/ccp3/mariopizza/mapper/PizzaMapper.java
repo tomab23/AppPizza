@@ -22,14 +22,17 @@ public class PizzaMapper {
 	 * @return dto, Pizza to PizzaDTO
 	 */
 	public static PizzaDTO toDto(Pizza piz) {
-		PizzaDTO dto = new PizzaDTO();
+		PizzaDTO dto = null;
 
+		dto = new PizzaDTO();
 
+		if (piz != null) {
 		dto.setId(piz.getId());
 		dto.setName(piz.getName());
 		dto.setImage(piz.getImage());
 		dto.setDescription(piz.getDescription());
 		dto.setPrice(piz.getPrice());
+	}
 
 		return dto;
 	}
@@ -41,14 +44,18 @@ public class PizzaMapper {
 	 * @return piz, PizzaDTO to Pizza entity
 	 */
 	public static Pizza toEntity(PizzaDTO dto) {
-		Pizza piz = new Pizza();
+		Pizza piz = null;
 
+		piz = new Pizza();
+
+		if (dto != null) {
 		piz.setId(dto.getId());
 		piz.setName(dto.getName());
 		piz.setImage(dto.getImage());
 		piz.setDescription(dto.getDescription());
 		piz.setPrice(dto.getPrice());
 
+	}
 		return piz;
 	}
 

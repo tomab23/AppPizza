@@ -7,9 +7,10 @@ import Header from '../components/Header';
 
 
 const Bienvenue = () => {
+
     const navigation = useNavigation<NativeStackNavigationProp<RouteParams>>();
 
-    const GoNew = () => {
+    const GoPizza = () => {
       navigation.navigate('Pizza')
     }
 
@@ -24,9 +25,7 @@ const Bienvenue = () => {
       <Text style={styles.text}>Félicitation !</Text>
       <Text style={styles.text}>Vous êtes prêt à commander.</Text>
 
-      <Text style={styles.new} onPress={GoNew} >Passez votre première commande</Text>
-
-
+      <Text style={styles.new} onPress={GoPizza} >Passez votre première commande</Text>
       </View>
 
     </View>

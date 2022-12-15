@@ -22,17 +22,17 @@ const LoginPage = () => {
     } = useForm();
 
 
-    const goNew = () => {
-      navigation.navigate('New')
-    }
+    // const goNew = () => {
+    //   navigation.navigate('New')
+    // }
 
     const [message, setMessage] = useState<string>(' ');
 
+    // Connecte l'utilisateur et l'envoi a la liste des pizzas
     const goPizza = (data: any) => {
       console.log(data);
-
-     LogBox.ignoreAllLogs();
-
+      LogBox.ignoreAllLogs();
+      // tentative Connexion
       setMessage('🍕 Tentative de connexion');
       AuthenticationService.login(watch('identifiant'), watch('mdp') ).then((isAuthenticated: any) => {
           if(!isAuthenticated) {
@@ -42,18 +42,17 @@ const LoginPage = () => {
         }
         setMessage('')
       navigation.navigate('Pizza');
-
-
     });
     }
+
+    
 
     
   return (
     <>
     <Header  />
     <View style={styles.container}>
-      
-
+      {/* FORMULAIRE */}
       <View style={styles.login}>
       {/* IDENTIFIANT */}
       <Text style={styles.text}>Identifiant</Text>
@@ -82,7 +81,7 @@ const LoginPage = () => {
       />
 
       {/* PAS DE COMPTE */}
-      <Text style={styles.new} onPress={goNew} >créer un compte</Text>
+      <Text style={styles.new} onPress={() => navigation.navigate('New')} >créer un compte</Text>
 
       {/* CONNEXION */}
       <CustomButton

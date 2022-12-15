@@ -13,4 +13,5 @@ import com.idformation.ccp3.mariopizza.models.Order;
  */
 public interface IOrderRepository extends JpaRepository<Order, Long> {
 
+
 }

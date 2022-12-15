@@ -23,8 +23,11 @@ public class OrderMapper {
 	 * @return dto, Order entity to OrderDTO
 	 */
 	public static OrderDTO toDto(Order order) {
-		OrderDTO dto = new OrderDTO();
+		OrderDTO dto = null;
 
+		dto = new OrderDTO();
+
+		if (order != null) {
 		dto.setId(order.getId());
 		dto.setDate(order.getDate());
 		dto.setTotalAmount(order.getTotalAmount());
@@ -36,6 +39,7 @@ public class OrderMapper {
 		}
 
 		dto.setLines(orderlines);
+	}
 
 		return dto;
 	}
@@ -46,8 +50,11 @@ public class OrderMapper {
 	 * @return order, OrderDTO to Order entity
 	 */
 	public static Order toEntity(OrderDTO dto) {
-		Order order = new Order();
+		Order order = null;
 
+		order = new Order();
+
+		if (dto != null) {
 		order.setId(dto.getId());
 		order.setDate(dto.getDate());
 		order.setTotalAmount(dto.getTotalAmount());
@@ -56,6 +63,7 @@ public class OrderMapper {
 		for (Long line : dto.getLines()) {
 			order.addLine(new OrderLine(line));
 		}
+	}
 
 		return order;
 	}

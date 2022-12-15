@@ -21,13 +21,17 @@ public class OrderLineMapper {
 	 * @return dto, OrderLine to OrderLineDTO
 	 */
 	public static OrderLineDTO toDto(OrderLine orderLine) {
-		OrderLineDTO dto = new OrderLineDTO();
+		OrderLineDTO dto = null;
 
+		dto = new OrderLineDTO();
+
+		if (orderLine != null) {
 		dto.setId(orderLine.getId());
 		dto.setQuantity(orderLine.getQuantity());
 		dto.setPizza(PizzaMapper.toDto(orderLine.getPizza()));
 //		dto.setOrder(OrderMapper.toDto(orderLine.getOrder()));
 
+	}
 		return dto;
 	}
 
@@ -37,13 +41,16 @@ public class OrderLineMapper {
 	 * @return orderLine, OrderLineDTO to orderLine entity
 	 */
 	public static OrderLine toEntity(OrderLineDTO dto) {
-		OrderLine orderLine = new OrderLine();
+		OrderLine orderLine = null;
 
+		orderLine = new OrderLine();
+
+		if (dto != null) {
 		orderLine.setId(dto.getId());
 		orderLine.setQuantity(dto.getQuantity());
 		orderLine.setPizza(PizzaMapper.toEntity(dto.getPizza()));
 //		orderLine.setOrder(OrderMapper.toEntity(dto.getOrder()));
-
+	}
 		return orderLine;
 	}
 

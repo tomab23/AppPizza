@@ -1,33 +1,22 @@
 import { StyleSheet, Text, TextInput, View, Image, Pressable } from 'react-native'
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import images from '../helpers/images'
+import NumericInput from 'react-native-numeric-input';
+import Quantity from './Quantity';
 
 
 
 const CardPizza = (props: any) => {
 
+    // const {id, name, description, image, price } = props.pizza
 
-    const { name, description, image, price} = props.pizza;
+    const { pizza , updateValue } = props
 
-    const [quantite, setQuantite] = useState(0);
+    
  
+    
+    
 
-    // Quantité de pizza selectionnée
-    const addCount = (nombre: any) => {
-            setQuantite(quantite + nombre);
-
-        if (nombre < 0) {
-            setQuantite(0)
-        } if (quantite > 9) {
-            setQuantite(0)
-        }
-      }
-
-    // transformer la quantité en string
-    const strQuantite = quantite.toString();
-
-    // Total prix pour une pizza selectionner
-    const totalCard = (quantite * price).toFixed(1);
 
     return (
         <>
@@ -35,41 +24,27 @@ const CardPizza = (props: any) => {
             {/* INFORMATION PIZZA */}
             <View style={styles.pizzaInfo}>
                 <View style={styles.image}>
-                    <Image  source={images[image]} style={{height: "100%", width: '100%'}} resizeMode='cover'/>
+                    <Image  source={images[pizza.image]} style={{height: "100%", width: '100%'}} resizeMode='cover'/>
                 </View>
 
                 {/* description Pizza */}
                 <View style={styles.contenu}>
-                    <Text style={styles.nom}>{name}</Text>
-                    <Text style={styles.info}>{description}</Text>
+                     <Text style={styles.nom}>{pizza.name}</Text>
+                    <Text style={styles.info}>{pizza.description}</Text> 
                 </View>
             </View>
             {/* PRIX + COMMANDE */}
             <View style={styles.prixQuantite}>
                 <View style={styles.box}>
-                    <Text style={styles.text}>Quantité</Text>
-                    {/* MOINS, ENLEVE DES PIZZAS */}
-                    <Pressable onPress={() => addCount(-1)}>
-                    <Text style={styles.add}>-</Text>
-                    </Pressable>
-                    {/* NOMBRE DE PIZZAS */}
-                    <TextInput 
-                        style={styles.input} 
-                        keyboardType='numeric'
-                        placeholder= '0'
-                        value= {strQuantite}
-                        onChangeText={(newQuantite) => setQuantite(Number(newQuantite))}
-                    />
-                     {/* PLUS, AJOUTE DES PIZZAS */}
-                     <Pressable onPress={() => addCount(+1)}>
-                    <Text style={styles.add}>+</Text>
-                    </Pressable>
-                    {/* Total par carte */}
-                    <Text style={{marginLeft: 5, alignSelf: 'center'}}>{totalCard}€</Text>
+                    <Text style={styles.text}>Quantité : </Text>
+                    <Quantity id={pizza.id}  updateValue={updateValue}   /> 
+                    {/* <Text style={{marginHorizontal: 20}}>{updateValue}</Text> */}
+                    {/* <Text>{totalCard}</Text> */}
+
                 </View>
                 
                 <View style={styles.box}>
-                <Text> {price}€ </Text>
+                <Text> {pizza.price} € </Text>
                 </View>
             </View>
         </View>
@@ -131,8 +106,8 @@ const styles = StyleSheet.create({
     },
     text: {
         marginHorizontal: 5,
-        marginTop: 5,
-        marginRight: 25
+        marginTop: 4.5,
+        marginRight: 5
     },
     add: {
         marginHorizontal: 5,

@@ -14,4 +14,6 @@ public interface IUserService {
 
 	User saveUser(User entity);
 
+	User findByPhonenumber(String phonenumber);
+
 }

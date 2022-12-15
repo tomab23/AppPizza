@@ -6,16 +6,17 @@ import CustomButton from '../components/CustomButton'
 import CustomInput from '../components/CustomInput'
 import { useNavigation } from '@react-navigation/native'
 import { NativeStackNavigationProp } from '@react-navigation/native-stack'
-import { RouteParams } from '../Routes/RootNavigator'
 import { useForm } from 'react-hook-form'
 import UserService from '../service/UserService'
 import AuthenticationService from '../service/AuthenticationService'
+import { RouteParams } from '../Routes/RootNavigator'
 
 
 const New = () => {
 
     const navigation = useNavigation<NativeStackNavigationProp<RouteParams>>();
 
+    // message juste apres avoir clic sur valider lors de l'inscription
     const [chargement, setChargement] = useState('');
     
 
@@ -26,8 +27,10 @@ const New = () => {
       formState: { errors },
     } = useForm();
 
+    // contient la valeur du mot de passe
     const mdp = watch('password');
 
+    // test la connexion de l'utilisateur, si tout est bon, permet a l'utilisateur de se connecter
     const login = () => {
       AuthenticationService.login(watch('phonenumber'), watch('password') ).then((isAuthenticated: any) => {
         if(!isAuthenticated) {
@@ -50,6 +53,7 @@ const New = () => {
   return (
     <View style={styles.container}>
       <Header name='Creation de compte'/>
+     {/* FORMULAIRE */}
       <ScrollView style={styles.scroll} showsVerticalScrollIndicator={false}>
         {/* NOM */}
         <Text style={styles.text}>Nom</Text>

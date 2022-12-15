@@ -24,4 +24,9 @@ public class UserService implements IUserService {
 		return userRepo.saveAndFlush(entity);
 	}
 
+	@Override
+	public User findByPhonenumber(String phonenumber) {
+		return userRepo.findByPhonenumber(phonenumber);
+	}
+
 }
