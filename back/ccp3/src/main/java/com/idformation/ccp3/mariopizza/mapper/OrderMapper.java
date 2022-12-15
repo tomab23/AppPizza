@@ -9,7 +9,6 @@ import java.util.List;
 import com.idformation.ccp3.mariopizza.dto.OrderDTO;
 import com.idformation.ccp3.mariopizza.models.Order;
 import com.idformation.ccp3.mariopizza.models.OrderLine;
-import com.idformation.ccp3.security.mapper.UserMapper;
 
 /**
  * @author Stagiaire
@@ -25,13 +24,12 @@ public class OrderMapper {
 	public static OrderDTO toDto(Order order) {
 		OrderDTO dto = null;
 
-		dto = new OrderDTO();
-
 		if (order != null) {
+		dto = new OrderDTO();
 		dto.setId(order.getId());
 		dto.setDate(order.getDate());
 		dto.setTotalAmount(order.getTotalAmount());
-		dto.setUser(UserMapper.toDto(order.getUser()));
+//		dto.setUser(UserMapper.toDto(order.getUser()));
 
 		List<Long> orderlines = new ArrayList<Long>();
 		for (OrderLine ol : order.getLines()) {
@@ -52,13 +50,13 @@ public class OrderMapper {
 	public static Order toEntity(OrderDTO dto) {
 		Order order = null;
 
-		order = new Order();
 
 		if (dto != null) {
+			order = new Order();
 		order.setId(dto.getId());
 		order.setDate(dto.getDate());
 		order.setTotalAmount(dto.getTotalAmount());
-		order.setUser(UserMapper.toEntity(dto.getUser()));
+//		order.setUser(UserMapper.toEntity(dto.getUser()));
 
 		for (Long line : dto.getLines()) {
 			order.addLine(new OrderLine(line));

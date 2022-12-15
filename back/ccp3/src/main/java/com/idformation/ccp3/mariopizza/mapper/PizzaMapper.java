@@ -24,9 +24,10 @@ public class PizzaMapper {
 	public static PizzaDTO toDto(Pizza piz) {
 		PizzaDTO dto = null;
 
-		dto = new PizzaDTO();
+
 
 		if (piz != null) {
+			dto = new PizzaDTO();
 		dto.setId(piz.getId());
 		dto.setName(piz.getName());
 		dto.setImage(piz.getImage());
@@ -46,9 +47,10 @@ public class PizzaMapper {
 	public static Pizza toEntity(PizzaDTO dto) {
 		Pizza piz = null;
 
-		piz = new Pizza();
+
 
 		if (dto != null) {
+			piz = new Pizza();
 		piz.setId(dto.getId());
 		piz.setName(dto.getName());
 		piz.setImage(dto.getImage());

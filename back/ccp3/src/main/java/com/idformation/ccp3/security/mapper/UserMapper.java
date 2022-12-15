@@ -32,15 +32,17 @@ public class UserMapper {
 	 * @return dto, UserDTO
 	 */
 	public static UserDTO toDto(User use) {
-		UserDTO dto = new UserDTO();
+		UserDTO dto = null;
 
+		if (use != null) {
+			dto = new UserDTO();
 		dto.setId(use.getId());
 		dto.setFirstname(use.getFirstname());
 		dto.setLastname(use.getLastname());
 		dto.setPassword(use.getPassword());
 		dto.setPhonenumber(use.getPhonenumber());
 		dto.setAddress(use.getAddress());
-
+	}
 		return dto;
 	}
 
@@ -50,15 +52,17 @@ public class UserMapper {
 	 * @return use, User entity
 	 */
 	public static User toEntity(UserDTO dto) {
-		User use = new User();
+		User use = null;
 
+		if (dto != null) {
+			use = new User();
 		use.setId(dto.getId());
 		use.setFirstname(dto.getFirstname());
 		use.setLastname(dto.getLastname());
 		use.setPassword(encoder(dto.getPassword()));
 		use.setPhonenumber(dto.getPhonenumber());
 		use.setAddress(dto.getAddress());
-
+	}
 		return use;
 	}
 

@@ -6,8 +6,6 @@ const Quantity = (props: any) => {
 
     const { updateValue, id} = props
 
-    
-
   return (
     <>
         <NumericInput                    
@@ -21,7 +19,7 @@ const Quantity = (props: any) => {
             textColor='#3b438b'
             leftButtonBackgroundColor='#feca57'
             rightButtonBackgroundColor='#feca57'
-                    />
+        />
     </>
     
   )

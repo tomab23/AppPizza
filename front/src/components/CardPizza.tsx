@@ -1,22 +1,13 @@
-import { StyleSheet, Text, TextInput, View, Image, Pressable } from 'react-native'
-import React, { useEffect, useState } from 'react'
+import { StyleSheet, Text, View, Image } from 'react-native'
+import React, {} from 'react'
 import images from '../helpers/images'
-import NumericInput from 'react-native-numeric-input';
 import Quantity from './Quantity';
 
 
 
 const CardPizza = (props: any) => {
-
-    // const {id, name, description, image, price } = props.pizza
-
+    
     const { pizza , updateValue } = props
-
-    
- 
-    
-    
-
 
     return (
         <>
@@ -121,16 +112,3 @@ const styles = StyleSheet.create({
     }
 })
 
-
-
-
-
-
-
-
-
-
-function setItem(key: any, string: any, value: any, string1: any, arg4: any[], arg5: (error: Error | null) => undefined) {
-    throw new Error('Function not implemented.');
-}
-// )

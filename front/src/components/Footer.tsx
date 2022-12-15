@@ -4,6 +4,9 @@ import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import { useNavigation } from '@react-navigation/native';
 import { RouteParams } from '../Routes/RootNavigator';
 import Pizza from '../models/Pizza';
+import OrderService from '../service/OrderService';
+import Order from '../models/Order';
+import User from '../models/User';
 
 
 
@@ -11,17 +14,20 @@ const Footer = (props: any) => {
 
   const { pizzas, order } = props
 
-  
-  
-
     const navigation = useNavigation<NativeStackNavigationProp<RouteParams>>();
 
+    const [total, setTotal] = useState(0)
+
     const ConfirmButton = () => {
+        let test = new Order(total, order)
+        console.log(test);
+        
+               
+        OrderService.addOrder(test)
+
         navigation.navigate('Final')
+        
       }
-
-
-      const [total, setTotal] = useState(0)
 
       useEffect(() => {
         let total = 0;
@@ -29,14 +35,7 @@ const Footer = (props: any) => {
         order.forEach((item: any) => {
           total +=
             item.quantity * pizzas.find((pizza: Pizza) => pizza.id === item.id).price;
-            console.log(item.quantity);
-            // console.log( pizzas);
-            
-            
-            // pizzas.find((pizza: any) => pizza.id === item.pizza);
-            // pizzas.filter((pizza: any) => pizza.id === item.id).find((pizza: any) => pizza.price)
-            
-            //  
+            console.log(item.quantity); 
         });
 
         setTotal(total)
