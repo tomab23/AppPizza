@@ -6,10 +6,11 @@ import { RouteParams } from '../Routes/RootNavigator';
 import Header from '../components/Header';
 
 
-const Bienvenue = () => {
+const Welcome = () => {
 
     const navigation = useNavigation<NativeStackNavigationProp<RouteParams>>();
 
+    // Bouton pour aller vers la liste des pizzas
     const GoPizza = () => {
       navigation.navigate('Pizza')
     }
@@ -17,24 +18,20 @@ const Bienvenue = () => {
     
   return (
     <>
-    <Header  />
-    <View style={styles.container}>
-      
-
-      <View style={styles.login}>
-      <Text style={styles.text}>Félicitation !</Text>
-      <Text style={styles.text}>Vous êtes prêt à commander.</Text>
-
-      <Text style={styles.new} onPress={GoPizza} >Passez votre première commande</Text>
+      <Header  />
+      <View style={styles.container}>
+        <View style={styles.login}>
+        <Text style={styles.text}>Félicitation !</Text>
+        <Text style={styles.text}>Vous êtes prêt à commander.</Text>
+        <Text style={styles.new} onPress={GoPizza} >Passez votre première commande</Text>
+        </View>
       </View>
-
-    </View>
     </>
   )
 }
 
 
-export default Bienvenue
+export default Welcome
 
 const styles = StyleSheet.create({
     container: {

@@ -16,28 +16,27 @@ const Footer = (props: any) => {
 
     const navigation = useNavigation<NativeStackNavigationProp<RouteParams>>();
 
+    // Constante qui contient le prix total
     const [total, setTotal] = useState(0)
 
+    // Confirme la commande (et va envoyer la commande dans la base de données)
     const ConfirmButton = () => {
         let test = new Order(total, order)
         console.log(test);
-        
-               
-        OrderService.addOrder(test)
+       
+        // OrderService.addOrder(test)
 
-        navigation.navigate('Final')
-        
+        navigation.navigate('Final')        
       }
 
+      // Calcul le rpix total des pizzas commander
       useEffect(() => {
         let total = 0;
-
         order.forEach((item: any) => {
           total +=
             item.quantity * pizzas.find((pizza: Pizza) => pizza.id === item.id).price;
             console.log(item.quantity); 
         });
-
         setTotal(total)
       }, [order])
 

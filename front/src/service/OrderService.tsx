@@ -3,6 +3,7 @@ import AuthenticationService from "./AuthenticationService";
 
 export default class OrderService {
 
+  // Récupère la méthode pour ajouter une nouvelle commande dans la base de données
     static async addOrder(order: Order): Promise<Order> {
         return fetch(`http://192.168.1.142:8080/auth/add`, {
           method: 'POST',

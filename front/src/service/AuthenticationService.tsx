@@ -8,6 +8,7 @@ export default class AuthenticationService {
 
     static jwt: string;
 
+    // Méthode qui récupère les Login
     static async getJwt(login: LoginRequest): Promise<any> {
       try {
         const response = await fetch(`http://192.168.1.142:8080/auth/signin`, {
@@ -27,7 +28,7 @@ export default class AuthenticationService {
       }
     }
   
-  
+  // Méthode qui test les Login de la base, pour pouvoir connecter l'utilsateur
     static async login(username: string, password: string): Promise<boolean> {
   
       await this.getJwt(new LoginRequest(username, password))

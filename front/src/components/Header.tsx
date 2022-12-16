@@ -1,6 +1,6 @@
 import { View, Text, StyleSheet, Image, TouchableHighlight } from 'react-native'
 import React from 'react'
-import { useNavigation } from '@react-navigation/native';
+import { CommonActions, useNavigation } from '@react-navigation/native';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import { RouteParams } from '../Routes/RootNavigator';
 
@@ -11,12 +11,16 @@ const Header = (props: any) => {
 
   const { name } = props;
 
+  // Ramène à la page 'LoginScreen' en rechargeant la page
   const GoLogin = () => {
-    navigation.navigate('LoginPage')
+    const resetAction = CommonActions.reset({
+      index: 0,
+      routes: [{ name: "LoginPage" }]
+    });
+    navigation.dispatch(resetAction);
   }
 
   return (
-
     <View style={styles.container}>
       <TouchableHighlight onPress={GoLogin}>
         <Image source={require('../assets/img/logo.png')} resizeMode='contain' style={styles.img} />

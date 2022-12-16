@@ -7,11 +7,14 @@ const CustomInput = (props: any) => {
 
   const { control, name, rules, secureTextEntry, type, placeholder} = props;
 
+  // Si input est de type adresse, alors la hauteur fera 80px sinon elle fera 35px
   const haut = type === 'adresse' ? 80 : 35;
 
+  // Si input est de type mot de passe, alors il n'est pas multiline
   const mdp = type === 'mdp' ? false : true;
 
-  const num = type === 'number' ? "numeric" : "default";
+  // Si input est de type number, alors il est en phone-pad sinon il est en default
+  const num = type === 'number' ? "phone-pad" : "default";
 
 
   return (

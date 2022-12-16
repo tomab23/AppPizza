@@ -12,11 +12,11 @@ import AuthenticationService from '../service/AuthenticationService'
 import { RouteParams } from '../Routes/RootNavigator'
 
 
-const New = () => {
+const InscriptionScreen = () => {
 
     const navigation = useNavigation<NativeStackNavigationProp<RouteParams>>();
 
-    // message juste apres avoir clic sur valider lors de l'inscription
+    // message juste apres avoir clic sur valider lors de l'inscription, message de chargement
     const [chargement, setChargement] = useState('');
     
 
@@ -45,9 +45,6 @@ const New = () => {
     const Creation = (data: any) => {
         setChargement('Chargement. . .');
        UserService.addUser(data).then(login);
-
-       
-
     }
 
   return (
@@ -67,7 +64,6 @@ const New = () => {
             maxLength: {value: 120, message: 'Le nom est trop long'}
           }}
         />
-
         {/* PRENOM */}
         <Text style={styles.text}>Prénom</Text>
         <CustomInput 
@@ -80,7 +76,6 @@ const New = () => {
             maxLength: {value: 120, message: 'Le prenom est trop long'}
           }}      
         />
-
         {/* MOT DE PASSE  */}
         <Text style={styles.text}>Mot de passe</Text>
         <CustomInput 
@@ -95,7 +90,6 @@ const New = () => {
           maxLength: {value: 120, message: 'Le mot de passe est trop long'}     
       }}         
         />
-
         {/* CONFIRME MOT DE PASSE */}
         <Text style={styles.text}>Confirmation</Text>
         <CustomInput 
@@ -111,7 +105,6 @@ const New = () => {
           validate: (value: string) => value === mdp ? true : 'Le mot de passe ne correspond pas'
         }}         
         />
-
         {/* NUMERO TELEPHONE */}
         <Text style={styles.text}>Téléphone</Text>
         <CustomInput
@@ -123,7 +116,6 @@ const New = () => {
           minLength: {value: 10, message: 'Le numéro dois faire 10 caractères minimum'},
           maxLength: {value: 20, message: 'Le numéro est trop long'}}} 
         />
-
         {/* ADRESSE */}
         <Text style={styles.text}>Adresse</Text>
         <CustomInput 
@@ -134,7 +126,6 @@ const New = () => {
           rules={{required: 'L\'adresse est obligatoire',
           maxLength: {value: 120, message: 'L\'adresse est trop longue'}}}      
         />
-
         {/* BOUTON  VALIDER */}
         <CustomButton
             text='Créer'
@@ -150,8 +141,7 @@ const New = () => {
 }
 
 
-
-export default New
+export default InscriptionScreen
 
 const styles = StyleSheet.create({
     container: {

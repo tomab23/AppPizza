@@ -7,6 +7,7 @@ export default class PizzaService {
 
     static pizzas:Pizza[];
   
+    // Récupère toutes les pizzas de la base de données
     static getPizzas(): Promise<Pizza[]> {
         return fetch('http://192.168.1.142:8080/pizza/', {
           method: "GET",

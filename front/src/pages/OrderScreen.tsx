@@ -37,12 +37,12 @@ const OrderScreen = () => {
     }, []);
     
     
-
+    // Contient les lignes de commandes
     const [order, setOrder] = useState([])
 
-
+    // Permet d'obtenir les commandes des pizzas, les id et leurs quantités
     const updateValue = (id: number, quantity: number) => {  
-      let newOrder: any = []
+      let newOrder: any = [];
 
       order
       .filter((pizza: Pizza) => pizza.id !== id)
@@ -50,7 +50,6 @@ const OrderScreen = () => {
 
       newOrder.push(new OrderLine(id, quantity))
       setOrder(newOrder)
-
     }
     console.log(order);
     

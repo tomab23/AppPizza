@@ -8,12 +8,10 @@ const CustomButton = (props: any) => {
 
   return (
     <Pressable 
-        onPress={onPress}
-        style={[styles.container, {margin: margin, backgroundColor: backgroundColor, alignSelf: align}]}
+      onPress={onPress}
+      style={[styles.container, {margin: margin, backgroundColor: backgroundColor, alignSelf: align}]}
     >
-
-    <Text style={{color: textColor, fontWeight: 'bold'}}> {text} </Text>
-
+      <Text style={{color: textColor, fontWeight: 'bold'}}> {text} </Text>
     </Pressable>
   )
 }

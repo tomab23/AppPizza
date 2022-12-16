@@ -10,8 +10,8 @@ const Final = () => {
     
     const navigation = useNavigation<NativeStackNavigationProp<RouteParams>>();
 
+    // Ramène vers la liste des pizzas et recharge la page 'OrderScreen' 
     const Confirm = () => {
-
       const resetAction = CommonActions.reset({
         index: 0,
         routes: [{ name: "Pizza" }]
@@ -22,17 +22,14 @@ const Final = () => {
     
   return (
     <>
-    <Header  />
-    <View style={styles.container}>
-      
-        <View style={styles.login}>
-            <Text style={styles.text}>Votre commande est en cours de préparations.</Text>
-            <Text style={styles.text}>Elle sera livrée dans 30 minutes</Text>
-
-            <Text style={styles.new} onPress={Confirm} >Retour à la page commande</Text>
-        </View>
-
-    </View>
+      <Header  />
+      <View style={styles.container}>
+          <View style={styles.login}>
+              <Text style={styles.text}>Votre commande est en cours de préparations.</Text>
+              <Text style={styles.text}>Elle sera livrée dans 30 minutes</Text>
+              <Text style={styles.new} onPress={Confirm} >Retour à la page commande</Text>
+          </View>
+      </View>
     </>
   )
 }

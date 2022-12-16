@@ -1,9 +1,9 @@
 import React from 'react'
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { NavigationContainer } from '@react-navigation/native';
-import LoginPage from '../pages/LoginPage';
-import New from '../pages/New';
-import Bienvenue from '../pages/Bienvenue';
+import LoginPage from '../pages/LoginScreen';
+import New from '../pages/InscriptionScreen';
+import Bienvenue from '../pages/Welcome';
 import Final from '../pages/Final';
 import OrderScreen from '../pages/OrderScreen';
 

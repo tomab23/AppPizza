@@ -26,16 +26,12 @@ const CardPizza = (props: any) => {
             </View>
             {/* PRIX + COMMANDE */}
             <View style={styles.prixQuantite}>
-                <View style={styles.box}>
+                <View style={styles.boxPrixQuantite}>
                     <Text style={styles.text}>Quantité : </Text>
                     <Quantity id={pizza.id}  updateValue={updateValue}   /> 
-                    {/* <Text style={{marginHorizontal: 20}}>{updateValue}</Text> */}
-                    {/* <Text>{totalCard}</Text> */}
-
-                </View>
-                
-                <View style={styles.box}>
-                <Text> {pizza.price} € </Text>
+                </View> 
+                <View style={styles.boxPrixQuantite}>
+                    <Text> {pizza.price} € </Text>
                 </View>
             </View>
         </View>
@@ -50,6 +46,7 @@ export default CardPizza
 
 const styles = StyleSheet.create({
     card: {
+    // CSS de la carte
         height: 155, 
         width: '95%', 
         marginVertical: 10,
@@ -70,7 +67,7 @@ const styles = StyleSheet.create({
         width: '30%'
     },
     contenu: {
-        // nom et description de la pizza
+    // nom et description de la pizza
         height: '100%',
         width: '70%'
     },
@@ -84,14 +81,14 @@ const styles = StyleSheet.create({
     },
 
     prixQuantite: {
-        // quantité + prix
+    // quantité + prix
         height: '30%' , 
         width: '100%',
         flexDirection: 'row',
         alignItems: 'center',
         justifyContent: 'space-between'
     },
-    box: {
+    boxPrixQuantite: {
         marginHorizontal: 10,
         flexDirection: 'row'
     },
@@ -100,15 +97,5 @@ const styles = StyleSheet.create({
         marginTop: 4.5,
         marginRight: 5
     },
-    add: {
-        marginHorizontal: 5,
-        fontSize: 20
-    },
-    input: {
-        borderWidth: 1, 
-        marginHorizontal: 5, 
-        width: '25%',
-        paddingLeft: 20
-    }
 })
 

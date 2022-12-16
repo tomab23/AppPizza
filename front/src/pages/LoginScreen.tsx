@@ -22,10 +22,7 @@ const LoginPage = () => {
     } = useForm();
 
 
-    // const goNew = () => {
-    //   navigation.navigate('New')
-    // }
-
+    // Pour message de connexion
     const [message, setMessage] = useState<string>(' ');
 
     // Connecte l'utilisateur et l'envoi a la liste des pizzas
@@ -44,10 +41,7 @@ const LoginPage = () => {
       navigation.navigate('Pizza');
     });
     }
-
-    
-
-    
+  
   return (
     <>
     <Header  />
