@@ -86,28 +86,28 @@ public class OrderLine {
 	/**
 	 * @param id the id to set
 	 */
-	public void setId(Long id) {
+	public void setId(final Long id) {
 		this.id = id;
 	}
 
 	/**
 	 * @param order the order to set
 	 */
-	public void setOrder(Order order) {
+	public void setOrder(final Order order) {
 		this.order = order;
 	}
 
 	/**
 	 * @param pizza the pizza to set
 	 */
-	public void setPizza(Pizza pizza) {
+	public void setPizza(final Pizza pizza) {
 		this.pizza = pizza;
 	}
 
 	/**
 	 * @param quantity the quantity to set
 	 */
-	public void setQuantity(Short quantity) {
+	public void setQuantity(final Short quantity) {
 		this.quantity = quantity;
 	}
 

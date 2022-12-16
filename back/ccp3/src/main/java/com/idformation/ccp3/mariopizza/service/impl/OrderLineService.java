@@ -17,11 +17,17 @@ import com.idformation.ccp3.mariopizza.service.IOrderLineService;
 @Service("OrderLineService")
 public class OrderLineService implements IOrderLineService {
 
+	/**
+	 * call interface OrderLine repository.
+	 */
 	@Autowired
 	private IOrderLineRepository lineRepo;
 
+	/**
+	 * save new OrderLine.
+	 */
 	@Override
-	public OrderLine saveLine(OrderLine entity) {
+	public OrderLine saveLine(final OrderLine entity) {
 		return lineRepo.saveAndFlush(entity);
 	}
 

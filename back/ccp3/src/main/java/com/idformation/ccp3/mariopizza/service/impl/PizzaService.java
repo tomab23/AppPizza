@@ -20,9 +20,16 @@ import com.idformation.ccp3.mariopizza.service.IPizzaService;
 @Service("PizzaService")
 public class PizzaService implements IPizzaService {
 
+	/**
+	 * call Interface Pizza repository.
+	 */
 	@Autowired
-	IPizzaRepository pizzaRepo;
+	private IPizzaRepository pizzaRepo;
 
+
+	/**
+	 * get list of pizzas.
+	 */
 	@Override
 	public List<Pizza> getPizzas() {
 		return pizzaRepo.findAll();

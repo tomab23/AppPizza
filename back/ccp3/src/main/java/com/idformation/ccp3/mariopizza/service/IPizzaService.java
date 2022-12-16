@@ -14,6 +14,9 @@ import com.idformation.ccp3.mariopizza.models.Pizza;
 
 public interface IPizzaService {
 
+	/**
+	 * @return list of pizzas
+	 */
 	List<Pizza> getPizzas();
 
 }

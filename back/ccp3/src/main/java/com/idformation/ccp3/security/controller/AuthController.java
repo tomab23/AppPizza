@@ -28,25 +28,36 @@ import com.idformation.ccp3.security.service.IUserService;
 @RequestMapping("/auth")
 public class AuthController {
 
+	/**
+	 * the tokenHeader.
+	 */
 	@Value("${app.jwtTokenHeader}")
 	private String tokenHeader;
 
+	/**
+	 * the authenticationManager.
+	 */
 	@Autowired
-	AuthenticationManager authenticationManager;
+	private AuthenticationManager authenticationManager;
 
+	/**
+	 * the tokenProvider.
+	 */
 	@Autowired
-	JwtProvider tokenProvider;
+	private JwtProvider tokenProvider;
 
+	/**
+	 * call User service.
+	 */
 	@Autowired
 	private IUserService userService;
 
 	/**
-	 * 
-	 * @param loginRequest, LoginRequest
+	 * @param loginRequest LoginRequest
 	 * @return new JwtResponse
 	 */
 	@PostMapping("/signin")
-	public ResponseEntity<?> authenticateUser(@Valid @RequestBody LoginRequest loginRequest) {
+	public ResponseEntity<?> authenticateUser(@Valid @RequestBody final LoginRequest loginRequest) {
 
 		Authentication authentication = authenticationManager.authenticate(
 				new UsernamePasswordAuthenticationToken(loginRequest.getUsername(), loginRequest.getPassword()));
@@ -59,12 +70,11 @@ public class AuthController {
 	}
 
 	/**
-	 * 
-	 * @param user, UserDTO
+	 * @param user UserDTO
 	 * @return User entity
 	 */
 	@PostMapping("/add")
-	public User setUser(@RequestBody UserDTO user) {
+	public User setUser(@RequestBody final UserDTO user) {
 		return userService.saveUser(UserMapper.toEntity(user));
 	}
 

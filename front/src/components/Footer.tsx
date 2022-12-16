@@ -19,19 +19,27 @@ const Footer = (props: any) => {
     // Constante qui contient le prix total
     const [total, setTotal] = useState(0)
 
+    console.log('total : '+ total);
+
     // Confirme la commande (et va envoyer la commande dans la base de données)
     const ConfirmButton = () => {
+      
+      if (total === 0) {
+        
+        return;
+      } else {
         let test = new Order(total, order)
-        console.log(test);
        
         // OrderService.addOrder(test)
 
-        navigation.navigate('Final')        
+        navigation.navigate('Final')  
+      }
+      
       }
 
       // Calcul le rpix total des pizzas commander
       useEffect(() => {
-        let total = 0;
+        let total = 0.0;
         order.forEach((item: any) => {
           total +=
             item.quantity * pizzas.find((pizza: Pizza) => pizza.id === item.id).price;
@@ -45,7 +53,7 @@ const Footer = (props: any) => {
     <View style={styles.footer}>
         <Text style={styles.textPrix}> Total: {total.toFixed(1)}€ </Text>
         <Pressable style={styles.valider} onPress={ConfirmButton}>
-            <Text style={styles.textValider}>Valider</Text>
+            <Text style={styles.textValider}>dijsfhsifhdsij</Text>
         </Pressable>
     </View>
   )

@@ -9,18 +9,39 @@ package com.idformation.ccp3.mariopizza.dto;
  */
 public class PizzaDTO {
 
+	/**
+	 * the id.
+	 */
 	private Long id;
+
+	/**
+	 * the name.
+	 */
 	private String name;
+
+	/**
+	 * the description.
+	 */
 	private String description;
+
+	/**
+	 * the image.
+	 */
 	private String image;
+
+	/**
+	 * the price.
+	 */
 	private Double price;
 
+	/**
+	 * PizzaDTO constructor.
+	 */
 	public PizzaDTO() {
 		super();
 	}
 
 	/**
-	 * 
 	 * @param id    the id
 	 * @param name  the name
 	 * @param desc  the description
@@ -46,7 +67,7 @@ public class PizzaDTO {
 	/**
 	 * @param id the id to set
 	 */
-	public void setId(Long id) {
+	public void setId(final Long id) {
 		this.id = id;
 	}
 
@@ -60,7 +81,7 @@ public class PizzaDTO {
 	/**
 	 * @param name the name to set
 	 */
-	public void setName(String name) {
+	public void setName(final String name) {
 		this.name = name;
 	}
 
@@ -74,7 +95,7 @@ public class PizzaDTO {
 	/**
 	 * @param description the description to set
 	 */
-	public void setDescription(String description) {
+	public void setDescription(final String description) {
 		this.description = description;
 	}
 
@@ -88,7 +109,7 @@ public class PizzaDTO {
 	/**
 	 * @param image the image to set
 	 */
-	public void setImage(String image) {
+	public void setImage(final String image) {
 		this.image = image;
 	}
 
@@ -102,7 +123,7 @@ public class PizzaDTO {
 	/**
 	 * @param price the price to set
 	 */
-	public void setPrice(Double price) {
+	public void setPrice(final Double price) {
 		this.price = price;
 	}
 

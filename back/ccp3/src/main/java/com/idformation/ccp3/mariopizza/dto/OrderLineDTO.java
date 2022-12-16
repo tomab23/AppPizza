@@ -9,24 +9,39 @@ package com.idformation.ccp3.mariopizza.dto;
  */
 public class OrderLineDTO {
 
+	/**
+	 * the id.
+	 */
 	private Long id;
+
+	/**
+	 * the quantity.
+	 */
 	private Short quantity;
 
+	/**
+	 * the Order.
+	 */
 	private OrderDTO order;
 
+	/**
+	 * the Pizza.
+	 */
 	private PizzaDTO pizza;
 
+	/**
+	 * OrderLine Constructor.
+	 */
 	public OrderLineDTO() {
 		super();
 	}
 
 	/**
-	 * 
 	 * @param i
 	 * @param id       the id
 	 * @param quantity the quantity
 	 */
-	public OrderLineDTO(long i, long id, short quantity) {
+	public OrderLineDTO(final long i, final long id, final short quantity) {
 		super();
 		this.id = id;
 		this.quantity = quantity;
@@ -42,7 +57,7 @@ public class OrderLineDTO {
 	/**
 	 * @param id the id to set
 	 */
-	public void setId(Long id) {
+	public void setId(final Long id) {
 		this.id = id;
 	}
 
@@ -56,7 +71,7 @@ public class OrderLineDTO {
 	/**
 	 * @param quantity the quantity to set
 	 */
-	public void setQuantity(Short quantity) {
+	public void setQuantity(final Short quantity) {
 		this.quantity = quantity;
 	}
 
@@ -70,7 +85,7 @@ public class OrderLineDTO {
 	/**
 	 * @param order the order to set
 	 */
-	public void setOrder(OrderDTO order) {
+	public void setOrder(final OrderDTO order) {
 		this.order = order;
 	}
 
@@ -84,7 +99,7 @@ public class OrderLineDTO {
 	/**
 	 * @param pizza the pizza to set
 	 */
-	public void setPizza(PizzaDTO pizza) {
+	public void setPizza(final PizzaDTO pizza) {
 		this.pizza = pizza;
 	}
 

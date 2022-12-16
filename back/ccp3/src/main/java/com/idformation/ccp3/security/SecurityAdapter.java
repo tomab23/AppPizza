@@ -24,22 +24,34 @@ import com.idformation.ccp3.security.jwt.JwtAuthenticationFilter;
 @EnableGlobalMethodSecurity(prePostEnabled = true)
 public class SecurityAdapter extends WebSecurityConfigurerAdapter {
 
+	/**
+	 * call User datail service.
+	 */
 	@Autowired
 	private UserDetailsService userDetailsService;
 
+	/**
+	 * methode bean.
+	 */
 	@Bean
 	@Override
 	public AuthenticationManager authenticationManagerBean() throws Exception {
 		return super.authenticationManagerBean();
 	}
 
+	/**
+	 * configuration authentication.
+	 */
 	@Override
 	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
 		auth.userDetailsService(userDetailsService).passwordEncoder(passwordEncoder());
 	}
 
+	/**
+	 * configuaration.
+	 */
 	@Override
-	protected void configure(HttpSecurity http) throws Exception {
+	protected void configure(final HttpSecurity http) throws Exception {
 		// @formatter:off
 		http
 		.headers().frameOptions().sameOrigin()
@@ -59,11 +71,17 @@ public class SecurityAdapter extends WebSecurityConfigurerAdapter {
 		http.cors();
 	}
 
+	/**
+	 * @return new JwtAuthenticationFilter
+	 */
 	@Bean
 	public JwtAuthenticationFilter jwtAuthenticationFilter() {
 		return new JwtAuthenticationFilter();
 	}
 
+	/**
+	 * @return new BCryptPasswordEncoder
+	 */
 	@Bean
 	public PasswordEncoder passwordEncoder() {
 		return new BCryptPasswordEncoder();

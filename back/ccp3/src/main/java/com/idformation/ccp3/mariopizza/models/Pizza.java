@@ -11,19 +11,34 @@ import javax.persistence.Table;
 @Table(name = "pizza")
 public class Pizza {
 
+	/**
+	 * the id.
+	 */
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 
+	/**
+	 * the name.
+	 */
 	@Column
 	private String name;
 
+	/**
+	 * the description.
+	 */
 	@Column
 	private String description;
 
+	/**
+	 * the image.
+	 */
 	@Column
 	private String image;
 
+	/**
+	 * the price.
+	 */
 	@Column
 	private Double price;
 
@@ -90,28 +105,28 @@ public class Pizza {
 	/**
 	 * @param description the description to set
 	 */
-	public void setDescription(String description) {
+	public void setDescription(final String description) {
 		this.description = description;
 	}
 
 	/**
 	 * @param id the id to set
 	 */
-	public void setId(Long id) {
+	public void setId(final Long id) {
 		this.id = id;
 	}
 
 	/**
 	 * @param image the image to set
 	 */
-	public void setImage(String image) {
+	public void setImage(final String image) {
 		this.image = image;
 	}
 
 	/**
 	 * @param name the name to set
 	 */
-	public void setName(String name) {
+	public void setName(final String name) {
 		this.name = name;
 	}
 
@@ -119,7 +134,7 @@ public class Pizza {
 	/**
 	 * @param price the price to set
 	 */
-	public void setPrice(Double price) {
+	public void setPrice(final Double price) {
 		this.price = price;
 	}
 

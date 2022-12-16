@@ -3,6 +3,7 @@
  */
 package com.idformation.ccp3.mariopizza.mapper;
 
+import java.sql.Date;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -16,12 +17,13 @@ import com.idformation.ccp3.mariopizza.models.OrderLine;
  */
 public class OrderMapper {
 
+
 	/**
-	 * 
-	 * @param order, Order entity
-	 * @return dto, Order entity to OrderDTO
+	 * @author Stagiaire
+	 * @param order Order entity
+	 * @return dto Order entity to OrderDTO
 	 */
-	public static OrderDTO toDto(Order order) {
+	public static OrderDTO toDto(final Order order) {
 		OrderDTO dto = null;
 
 		if (order != null) {
@@ -43,20 +45,19 @@ public class OrderMapper {
 	}
 
 	/**
-	 * 
-	 * @param dto, OrderDTO
+	 * @author Stagiaire
+	 * @param dto OrderDTO
 	 * @return order, OrderDTO to Order entity
 	 */
-	public static Order toEntity(OrderDTO dto) {
+	public static Order toEntity(final OrderDTO dto) {
 		Order order = null;
 
 
 		if (dto != null) {
 			order = new Order();
-		order.setId(dto.getId());
-		order.setDate(dto.getDate());
-		order.setTotalAmount(dto.getTotalAmount());
-//		order.setUser(UserMapper.toEntity(dto.getUser()));
+//		order.setId(dto.getId());
+			order.setDate(new Date(0));
+//		order.setTotalAmount(dto.getTotalAmount());
 
 		for (Long line : dto.getLines()) {
 			order.addLine(new OrderLine(line));
@@ -67,11 +68,11 @@ public class OrderMapper {
 	}
 
 	/**
-	 * 
-	 * @param orders, List of Order entity
+	 * @author Stagiaire
+	 * @param orders List of Order entity
 	 * @return dtos, List of Order entity to Order dto
 	 */
-	public static List<OrderDTO> ListToListDto(List<Order> orders) {
+	public static List<OrderDTO> listToListDto(final List<Order> orders) {
 		List<OrderDTO> dtos = null;
 
 		if (orders != null && !orders.isEmpty()) {

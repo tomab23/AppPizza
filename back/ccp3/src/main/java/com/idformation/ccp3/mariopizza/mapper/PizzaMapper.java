@@ -16,58 +16,51 @@ import com.idformation.ccp3.mariopizza.models.Pizza;
 public class PizzaMapper {
 
 	/**
-	 * Transform Entity to DTO
-	 * 
-	 * @param piz, Pizza entity
-	 * @return dto, Pizza to PizzaDTO
+	 * Transform Entity to DTO.
+	 * @param piz Pizza entity
+	 * @return dto Pizza to PizzaDTO
 	 */
-	public static PizzaDTO toDto(Pizza piz) {
+	public static PizzaDTO toDto(final Pizza piz) {
 		PizzaDTO dto = null;
-
-
 
 		if (piz != null) {
 			dto = new PizzaDTO();
-		dto.setId(piz.getId());
-		dto.setName(piz.getName());
-		dto.setImage(piz.getImage());
-		dto.setDescription(piz.getDescription());
-		dto.setPrice(piz.getPrice());
-	}
+			dto.setId(piz.getId());
+			dto.setName(piz.getName());
+			dto.setImage(piz.getImage());
+			dto.setDescription(piz.getDescription());
+			dto.setPrice(piz.getPrice());
+		}
 
 		return dto;
 	}
 
 	/**
-	 * Transform DTO to Entity
-	 * 
-	 * @param dto, PizzaDTO
-	 * @return piz, PizzaDTO to Pizza entity
+	 * Transform DTO to Entity.
+	 * @param dto PizzaDTO
+	 * @return piz PizzaDTO to Pizza entity
 	 */
-	public static Pizza toEntity(PizzaDTO dto) {
+	public static Pizza toEntity(final PizzaDTO dto) {
 		Pizza piz = null;
-
-
 
 		if (dto != null) {
 			piz = new Pizza();
-		piz.setId(dto.getId());
-		piz.setName(dto.getName());
-		piz.setImage(dto.getImage());
-		piz.setDescription(dto.getDescription());
-		piz.setPrice(dto.getPrice());
+			piz.setId(dto.getId());
+			piz.setName(dto.getName());
+			piz.setImage(dto.getImage());
+			piz.setDescription(dto.getDescription());
+			piz.setPrice(dto.getPrice());
 
-	}
+		}
 		return piz;
 	}
 
 	/**
-	 * Transform List of Entity to List of DTO
-	 * 
-	 * @param pizs, List of Pizza
-	 * @return dtos, List of Pizza to List of PizzaDTO
+	 * Transform List of Entity to List of DTO.
+	 * @param pizs List of Pizza
+	 * @return dtos List of Pizza to List of PizzaDTO
 	 */
-	public static List<PizzaDTO> ListToListDto(List<Pizza> pizs) {
+	public static List<PizzaDTO> listToListDto(final List<Pizza> pizs) {
 		List<PizzaDTO> dtos = null;
 
 		if (pizs != null && !pizs.isEmpty()) {

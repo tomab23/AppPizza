@@ -16,11 +16,10 @@ import com.idformation.ccp3.mariopizza.models.OrderLine;
 public class OrderLineMapper {
 
 	/**
-	 * 
-	 * @param orderLine, OrderLine entity
-	 * @return dto, OrderLine to OrderLineDTO
+	 * @param orderLine OrderLine entity.
+	 * @return dto OrderLine to OrderLineDTO
 	 */
-	public static OrderLineDTO toDto(OrderLine orderLine) {
+	public static OrderLineDTO toDto(final OrderLine orderLine) {
 		OrderLineDTO dto = null;
 
 
@@ -38,10 +37,10 @@ public class OrderLineMapper {
 
 	/**
 	 * 
-	 * @param dto, OrderLineDTO
-	 * @return orderLine, OrderLineDTO to orderLine entity
+	 * @param dto OrderLineDTO.
+	 * @return orderLine OrderLineDTO to orderLine entity
 	 */
-	public static OrderLine toEntity(OrderLineDTO dto) {
+	public static OrderLine toEntity(final OrderLineDTO dto) {
 		OrderLine orderLine = null;
 
 		if (dto != null) {
@@ -55,11 +54,10 @@ public class OrderLineMapper {
 	}
 
 	/**
-	 * 
-	 * @param orderLines, List of OrderLine entity
-	 * @return dtos, List of OrderLine to list of OrderLineDTO
+	 * @param orderLines List of OrderLine entity
+	 * @return dtos List of OrderLine to list of OrderLineDTO
 	 */
-	public static List<OrderLineDTO> ListToListDto(List<OrderLine> orderLines) {
+	public static List<OrderLineDTO> listToListDto(final List<OrderLine> orderLines) {
 		List<OrderLineDTO> dtos = null;
 
 		if (orderLines != null && !orderLines.isEmpty()) {
@@ -72,8 +70,5 @@ public class OrderLineMapper {
 
 		return dtos;
 	}
-	
-	
-	
 
 }

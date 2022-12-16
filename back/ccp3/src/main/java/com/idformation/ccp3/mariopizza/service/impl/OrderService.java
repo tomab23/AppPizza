@@ -17,11 +17,17 @@ import com.idformation.ccp3.mariopizza.service.IOrderService;
 @Service("OrderService")
 public class OrderService implements IOrderService {
 
+	/**
+	 * call interface Order repository.
+	 */
 	@Autowired
 	private IOrderRepository orderRepo;
 
+	/**
+	 * new Order.
+	 */
 	@Override
-	public Order saveOrder(Order order) {
+	public Order saveOrder(final Order order) {
 		Order save = orderRepo.save(order);
 
 //		save.setTotalAmount(orderRepo.computeAmount(save.getId()));

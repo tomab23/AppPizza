@@ -14,21 +14,49 @@ import com.idformation.ccp3.security.models.Role;
  */
 public class UserDTO {
 
+	/**
+	 * the id.
+	 */
 	private Long id;
+
+	/**
+	 * the phonenumber.
+	 */
 	private String phonenumber;
+
+	/**
+	 * the password.
+	 */
 	private String password;
+
+	/**
+	 * the firstname.
+	 */
 	private String firstname;
+
+	/**
+	 * the lastname.
+	 */
 	private String lastname;
+
+	/**
+	 * the address.
+	 */
 	private String address;
 
+	/**
+	 * the role of User.
+	 */
 	private Set<Role> roles = new HashSet<>();
 
+	/**
+	 * UserDTO constructor.
+	 */
 	public UserDTO() {
 		super();
 	}
 
 	/**
-	 * 
 	 * @param id          the id
 	 * @param phonenumber the phonenumber
 	 * @param password    the password
@@ -56,7 +84,7 @@ public class UserDTO {
 	/**
 	 * @param id the id to set
 	 */
-	public void setId(Long id) {
+	public void setId(final Long id) {
 		this.id = id;
 	}
 
@@ -70,7 +98,7 @@ public class UserDTO {
 	/**
 	 * @param phonenumber the phonenumber to set
 	 */
-	public void setPhonenumber(String phonenumber) {
+	public void setPhonenumber(final String phonenumber) {
 		this.phonenumber = phonenumber;
 	}
 
@@ -112,7 +140,7 @@ public class UserDTO {
 	/**
 	 * @param lastname the lastname to set
 	 */
-	public void setLastname(String lastname) {
+	public void setLastname(final String lastname) {
 		this.lastname = lastname;
 	}
 
@@ -126,7 +154,7 @@ public class UserDTO {
 	/**
 	 * @param address the address to set
 	 */
-	public void setAddress(String address) {
+	public void setAddress(final String address) {
 		this.address = address;
 	}
 
@@ -140,7 +168,7 @@ public class UserDTO {
 	/**
 	 * @param roles the roles to set
 	 */
-	public void setRoles(Set<Role> roles) {
+	public void setRoles(final Set<Role> roles) {
 		this.roles = roles;
 	}
 

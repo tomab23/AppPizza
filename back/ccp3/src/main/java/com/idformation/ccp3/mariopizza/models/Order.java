@@ -23,21 +23,36 @@ import com.idformation.ccp3.security.models.User;
 @Table(name = "`order`")
 public class Order {
 
+	/**
+	 * the id.
+	 */
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 
-	@Column(name="`date`")
+	/**
+	 * the date.
+	 */
+	@Column(name = "`date`")
 	@Temporal(TemporalType.DATE)
 	private Date date;
 
-	@Column(name="total_amount")
-	private Double totalAmount=0.;
+	/**
+	 * the total.
+	 */
+	@Column(name = "total_amount")
+	private Double totalAmount = 0.;
 
+	/**
+	 * the User.
+	 */
 	@ManyToOne
-	@JoinColumn(name="usr_id", referencedColumnName = "id")
+	@JoinColumn(name = "usr_id", referencedColumnName = "id")
 	private User user;
 
+	/**
+	 * the list of OrderLine.
+	 */
 	@OneToMany(mappedBy = "order", cascade = CascadeType.PERSIST)
 	private List<OrderLine> lines;
 
@@ -49,7 +64,6 @@ public class Order {
 	}
 
 	/**
-	 * 
 	 * @param id    the id
 	 * @param date  the date
 	 * @param total the total
@@ -67,16 +81,14 @@ public class Order {
 
 
 	/**
-	 * 
 	 * @param id the id
 	 */
-	public Order(long id) {
+	public Order(final long id) {
 		super();
 		this.id = id;
 	}
 
 	/**
-	 * 
 	 * @param id    the id
 	 * @param date  the date
 	 * @param total the total
@@ -91,9 +103,9 @@ public class Order {
 	}
 
 	/**
-	 * @param lines the lines to set
+	 * @param line the lines to set
 	 */
-	public void addLine(OrderLine line) {
+	public void addLine(final OrderLine line) {
 		if (lines == null) {
 			lines = new ArrayList<>();
 		}
@@ -140,35 +152,35 @@ public class Order {
 	/**
 	 * @param date the date to set
 	 */
-	public void setDate(Date date) {
+	public void setDate(final Date date) {
 		this.date = date;
 	}
 
 	/**
 	 * @param id the id to set
 	 */
-	public void setId(Long id) {
+	public void setId(final Long id) {
 		this.id = id;
 	}
 
 	/**
 	 * @param lines the lines to set
 	 */
-	public void setLines(List<OrderLine> lines) {
+	public void setLines(final List<OrderLine> lines) {
 		this.lines = lines;
 	}
 
 	/**
 	 * @param totalAmount the totalAmount to set
 	 */
-	public void setTotalAmount(Double totalAmount) {
+	public void setTotalAmount(final Double totalAmount) {
 		this.totalAmount = totalAmount;
 	}
 
 	/**
 	 * @param user the user to set
 	 */
-	public void setUser(User user) {
+	public void setUser(final User user) {
 		this.user = user;
 	}
 

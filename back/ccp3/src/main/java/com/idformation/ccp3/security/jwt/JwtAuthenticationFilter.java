@@ -20,10 +20,10 @@ import org.springframework.web.filter.OncePerRequestFilter;
 public class JwtAuthenticationFilter extends OncePerRequestFilter {
 
 	@Value("${app.jwtTokenHeader}")
-	private String tokenHeader;
+	public String tokenHeader;
 
 	@Autowired
-	private JwtProvider tokenProvider;
+	public JwtProvider tokenProvider;
 	@Autowired
 	private UserDetailsService userDetailsService;
 

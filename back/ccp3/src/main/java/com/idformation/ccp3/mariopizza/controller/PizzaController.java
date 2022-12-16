@@ -41,31 +41,49 @@ import com.idformation.ccp3.security.service.UserService;
 @CrossOrigin(origins = "http://localhost:19006", maxAge = 3600)
 public class PizzaController {
 
+	/**
+	 * @author Stagiaire call Interface Pizza service.
+	 */
 	@Autowired
 	private IPizzaService pizzaService;
 
+	/**
+	 * call Interface Order service.
+	 */
 	@Autowired
 	private IOrderService orderService;
 
+	/**
+	 * call JwtProvider.
+	 */
 	@Autowired
 	private JwtProvider jwtProvider;
 
+	/**
+	 * call JwtAuthenticationFilter.
+	 */
 	@Autowired
 	private JwtAuthenticationFilter jwtAuthenticationFilter;
 
 //	@Autowired
 //	private UserDetailsServiceImpl userService;
 
+	/**
+	 * call User service.
+	 */
 	@Autowired
 	private UserService useService;
-	
+
+	/**
+	 * call OrderLine service.
+	 */
 	@Autowired
 	private OrderLineService lineService;
 
 
 
 	/**
-	 * 
+	 * @author Stagiaire
 	 * @return List of all Pizza
 	 */
 	@GetMapping("/")
@@ -73,12 +91,17 @@ public class PizzaController {
 		return PizzaMapper.ListToListDto(pizzaService.getPizzas());
 	}
 
+	/**
+	 * @author Stagiaire
+	 * @param orders
+	 * @param request
+	 */
 	@PostMapping("/userOrder")
-	void saveOrder(@RequestBody OrderDTO orders, HttpServletRequest request) {
+	void saveOrder(@RequestBody final OrderDTO orders, final HttpServletRequest request) {
 
 		// 1: On identifie le user par le jwt
 		User user = useService.findByPhonenumber(
-				jwtProvider.getUserUsernameFromJWT(jwtAuthenticationFilter.getJwtFromRequest(request)));
+				jwtProvider.getUserUsernameFromJWT(jwtAuthenticationFilter.getJwtFromRequest(request))).get();
 
 		// 2: creation order pour le requestBody
 		Order order = OrderMapper.toEntity(orders);
@@ -89,17 +112,22 @@ public class PizzaController {
 	}
 
 	/**
-	 * 
-	 * @param user, UserDTO
-	 * @return User entity
+	 * @author Stagiaire
+	 * @param dto OrderLineDTO
+	 * @return entity Orderline
 	 */
 	@PostMapping("/add/line")
-	public OrderLine addLines(@RequestBody OrderLineDTO dto) {
+	public OrderLine addLines(@RequestBody final OrderLineDTO dto) {
 		return lineService.saveLine(OrderLineMapper.toEntity(dto));
 	}
 
+	/**
+	 * @author Stagiaire
+	 * @param dto OrderDTO
+	 * @return entity Order entity
+	 */
 	@PostMapping("/add/order")
-	public Order addOrder(@RequestBody OrderDTO dto) {
+	public Order addOrder(@RequestBody final OrderDTO dto) {
 		return orderService.saveOrder(OrderMapper.toEntity(dto));
 	}
 

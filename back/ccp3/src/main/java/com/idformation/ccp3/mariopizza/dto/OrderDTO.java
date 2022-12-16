@@ -13,26 +13,46 @@ import com.idformation.ccp3.security.dto.UserDTO;
  *
  */
 public class OrderDTO {
+	/**
+	 * the id.
+	 */
 
 	private Long id;
+	/**
+	 * the date.
+	 */
+
 	private Date date;
+
+	/**
+	 * the total.
+	 */
 	private Double totalAmount;
+
+	/**
+	 * the User.
+	 */
 	private UserDTO user;
 
+	/**
+	 * List of OrderLine.
+	 */
 	private List<Long> lines;
 
+	/**
+	 * OrderDTO constructor.
+	 */
 	public OrderDTO() {
 		super();
 	}
 
 	/**
-	 * 
 	 * @param id    the id
 	 * @param date  the date
 	 * @param total the total
 	 * @param user  the user
 	 */
-	public OrderDTO(long id, Date date, double total, UserDTO user) {
+	public OrderDTO(final long id, final Date date, final double total, final UserDTO user) {
 		super();
 		this.id = id;
 		this.date = date;
@@ -50,7 +70,7 @@ public class OrderDTO {
 	/**
 	 * @param id the id to set
 	 */
-	public void setId(Long id) {
+	public void setId(final Long id) {
 		this.id = id;
 	}
 
@@ -64,7 +84,7 @@ public class OrderDTO {
 	/**
 	 * @param date the date to set
 	 */
-	public void setDate(Date date) {
+	public void setDate(final Date date) {
 		this.date = date;
 	}
 
@@ -78,7 +98,7 @@ public class OrderDTO {
 	/**
 	 * @param totalAmount the totalAmount to set
 	 */
-	public void setTotalAmount(Double totalAmount) {
+	public void setTotalAmount(final Double totalAmount) {
 		this.totalAmount = totalAmount;
 	}
 
@@ -92,7 +112,7 @@ public class OrderDTO {
 	/**
 	 * @param userDTO the user to set
 	 */
-	public void setUser(UserDTO userDTO) {
+	public void setUser(final UserDTO userDTO) {
 		this.user = userDTO;
 	}
 
@@ -106,7 +126,7 @@ public class OrderDTO {
 	/**
 	 * @param lines the lines to set
 	 */
-	public void setLines(List<Long> lines) {
+	public void setLines(final List<Long> lines) {
 		this.lines = lines;
 	}
 

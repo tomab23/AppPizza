@@ -14,24 +14,21 @@ import com.idformation.ccp3.security.models.User;
  *
  */
 public class UserMapper {
-	
-	/**
-	 * 
-	 * @param password, User password
-	 * @return method to crypt password
-	 */
-	public static String encoder(String password) {
-		PasswordEncoder passwordEncoder = new BCryptPasswordEncoder(); 
-		return passwordEncoder.encode(password);
-	}
-	
 
 	/**
-	 * 
-	 * @param use, User entity
-	 * @return dto, UserDTO
+	 * @param password User password.
+	 * @return method to crypt password
 	 */
-	public static UserDTO toDto(User use) {
+	public static String encoder(final String password) {
+		PasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
+		return passwordEncoder.encode(password);
+	}
+
+	/**
+	 * @param use User entity
+	 * @return dto UserDTO
+	 */
+	public static UserDTO toDto(final User use) {
 		UserDTO dto = null;
 
 		if (use != null) {
@@ -47,11 +44,10 @@ public class UserMapper {
 	}
 
 	/**
-	 * 
-	 * @param dto, UserDTO
-	 * @return use, User entity
+	 * @param dto UserDTO
+	 * @return use User entity
 	 */
-	public static User toEntity(UserDTO dto) {
+	public static User toEntity(final UserDTO dto) {
 		User use = null;
 
 		if (dto != null) {

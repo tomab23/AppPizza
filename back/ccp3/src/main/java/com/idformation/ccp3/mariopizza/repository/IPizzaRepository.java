@@ -1,5 +1,4 @@
 /**
- * 
  */
 package com.idformation.ccp3.mariopizza.repository;
 

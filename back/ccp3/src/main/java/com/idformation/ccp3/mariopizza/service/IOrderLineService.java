@@ -11,6 +11,10 @@ import com.idformation.ccp3.mariopizza.models.OrderLine;
  */
 public interface IOrderLineService {
 
+	/**
+	 * @param entity OrderLine
+	 * @return entity Orderline
+	 */
 	OrderLine saveLine(OrderLine entity);
 
 }

@@ -3,6 +3,8 @@
  */
 package com.idformation.ccp3.security.service;
 
+import java.util.Optional;
+
 import com.idformation.ccp3.security.models.User;
 
 /**
@@ -12,8 +14,16 @@ import com.idformation.ccp3.security.models.User;
 
 public interface IUserService {
 
+	/**
+	 * @param entity
+	 * @return User entity
+	 */
 	User saveUser(User entity);
 
-	User findByPhonenumber(String phonenumber);
+	/**
+	 * @param phonenumber
+	 * @return phonenumber of User
+	 */
+	Optional<User> findByPhonenumber(String phonenumber);
 
 }
