@@ -99,7 +99,7 @@ public class OrderLineTest {
 		List<OrderLine> ols = null;
 
 		// when
-		List<OrderLineDTO> dtos = OrderLineMapper.ListToListDto(ols);
+		List<OrderLineDTO> dtos = OrderLineMapper.listToListDto(ols);
 
 		// then
 		assertThat(dtos).isNull();
@@ -115,7 +115,7 @@ public class OrderLineTest {
 		ols.isEmpty();
 
 		// when
-		List<OrderLineDTO> dtos = OrderLineMapper.ListToListDto(ols);
+		List<OrderLineDTO> dtos = OrderLineMapper.listToListDto(ols);
 
 		// then
 		assertThat(dtos).isNull();
@@ -139,7 +139,7 @@ public class OrderLineTest {
 		}
 
 		// when
-		List<OrderLineDTO> dtos = OrderLineMapper.ListToListDto(ols);
+		List<OrderLineDTO> dtos = OrderLineMapper.listToListDto(ols);
 
 		// then
 		assertThat(dtos).isNotNull().hasSameSizeAs(ols);

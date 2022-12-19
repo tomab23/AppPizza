@@ -88,7 +88,7 @@ public class PizzaController {
 	 */
 	@GetMapping("/")
 	public List<PizzaDTO> getAllPizzas() {
-		return PizzaMapper.ListToListDto(pizzaService.getPizzas());
+		return PizzaMapper.listToListDto(pizzaService.getPizzas());
 	}
 
 	/**

@@ -23,8 +23,8 @@ import com.idformation.ccp3.mariopizza.models.Pizza;
 @SpringBootTest
 public class PizzaTest {
 
-	/**
-	 * test for Pizza constructor
+/**
+	 * test for Pizza constructor.
 	 */
 	@Test
 	void PizzaConstructor() {
@@ -96,7 +96,7 @@ public class PizzaTest {
 		List<Pizza> pizs = null;
 
 		// when
-		List<PizzaDTO> dtos = PizzaMapper.ListToListDto(pizs);
+		List<PizzaDTO> dtos = PizzaMapper.listToListDto(pizs);
 
 		// then
 		assertThat(dtos).isNull();
@@ -112,7 +112,7 @@ public class PizzaTest {
 		pizs.isEmpty();
 
 		// when
-		List<PizzaDTO> dtos = PizzaMapper.ListToListDto(pizs);
+		List<PizzaDTO> dtos = PizzaMapper.listToListDto(pizs);
 
 		// then
 		assertThat(dtos).isNull();
@@ -131,7 +131,7 @@ public class PizzaTest {
 		}
 
 		// when
-		List<PizzaDTO> dtos = PizzaMapper.ListToListDto(pizs);
+		List<PizzaDTO> dtos = PizzaMapper.listToListDto(pizs);
 
 		// then
 		assertThat(dtos).isNotNull().hasSameSizeAs(pizs);

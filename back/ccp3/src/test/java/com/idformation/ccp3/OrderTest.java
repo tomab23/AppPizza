@@ -110,7 +110,7 @@ public class OrderTest {
 		List<Order> order = null;
 
 		// when
-		List<OrderDTO> dtos = OrderMapper.ListToListDto(order);
+		List<OrderDTO> dtos = OrderMapper.listToListDto(order);
 
 		// then
 		assertThat(dtos).isNull();
@@ -126,7 +126,7 @@ public class OrderTest {
 		order.isEmpty();
 
 		// when
-		List<OrderDTO> dtos = OrderMapper.ListToListDto(order);
+		List<OrderDTO> dtos = OrderMapper.listToListDto(order);
 
 		// then
 		assertThat(dtos).isNull();
@@ -151,7 +151,7 @@ public class OrderTest {
 		}
 
 		// when
-		List<OrderDTO> dtos = OrderMapper.ListToListDto(orders);
+		List<OrderDTO> dtos = OrderMapper.listToListDto(orders);
 
 		// then
 		assertThat(dtos).isNotNull().hasSameSizeAs(orders);
