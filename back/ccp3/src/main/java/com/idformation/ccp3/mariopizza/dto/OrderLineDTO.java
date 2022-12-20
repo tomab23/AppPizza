@@ -1,5 +1,7 @@
 package com.idformation.ccp3.mariopizza.dto;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 /**
  * @author Stagiaire
  *
@@ -9,6 +11,7 @@ public class OrderLineDTO {
 	/**
 	 * the Pizza in the OrderLine.
 	 */
+	@JsonProperty("id")
 	private Long pizza;
 
 	/**

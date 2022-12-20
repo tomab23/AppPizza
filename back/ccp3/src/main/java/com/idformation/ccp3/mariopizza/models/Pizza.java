@@ -51,11 +51,11 @@ public class Pizza {
 	}
 
 	/**
-	 * @param pizza
+	 * @param id2
 	 */
-	public Pizza(final Long pizza) {
+	public Pizza(final Long id2) {
 		super();
-		this.id = pizza;
+		this.id = id2;
 	}
 
 	/**
