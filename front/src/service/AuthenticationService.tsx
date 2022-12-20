@@ -11,7 +11,7 @@ export default class AuthenticationService {
     // Méthode qui récupère les Login
     static async getJwt(login: LoginRequest): Promise<any> {
       try {
-        const response = await fetch(`http://192.168.1.142:8080/auth/signin`, {
+        const response = await fetch(`http://192.168.1.143:8080/auth/signin`, {
           method: 'POST',
           body: JSON.stringify(login),
           headers: { 'Content-Type': 'application/json' }

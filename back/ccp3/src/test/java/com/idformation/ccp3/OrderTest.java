@@ -1,5 +1,5 @@
 /**
- * 
+ *  Order test
  */
 package com.idformation.ccp3;
 
@@ -7,17 +7,17 @@ import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import com.idformation.ccp3.mariopizza.dto.OrderDTO;
-import com.idformation.ccp3.mariopizza.dto.OrderLineDTO;
+import com.idformation.ccp3.mariopizza.helpers.MagicNumber;
 import com.idformation.ccp3.mariopizza.mapper.OrderMapper;
 import com.idformation.ccp3.mariopizza.models.Order;
 import com.idformation.ccp3.mariopizza.models.OrderLine;
-import com.idformation.ccp3.security.dto.UserDTO;
 import com.idformation.ccp3.security.models.User;
 
 /**
@@ -28,10 +28,10 @@ import com.idformation.ccp3.security.models.User;
 public class OrderTest {
 
 	/**
-	 * test for Order constructor
+	 * test for Order constructor.
 	 */
 	@Test
-	void OrderConstructor() {
+	void orderConstructor() {
 		// given
 
 		// when
@@ -42,23 +42,19 @@ public class OrderTest {
 	}
 
 	/**
-	 * test for Order entity to OrderDTO
+	 * test for Order entity to OrderDTO.
 	 */
 	@Test
-	public void OrderToDto() {
+	public void orderToDto() {
 		// given
 		Order order = new Order();
 
 		order.setId((long) 1);
-		order.setDate(null);
-		order.setTotalAmount((double) 25);
-		order.setUser(new User((long) 1, "0605998899", "445566", "prenom", "nom", "rue du test"));
-		List<OrderLine> lines = new ArrayList<>();
-		for (long i = 0; i < 2; i++) {
-			lines.add(new OrderLine(i, (long) 1, (short) 25));
-		}
-		
-		order.setLines(lines);
+		order.setDate(new Date());
+		order.setTotalAmount((double) MagicNumber.SIZESMALL);
+		order.setUser(new User());
+		order.setLines(null);
+
 
 		// when
 		OrderDTO dto = OrderMapper.toDto(order);
@@ -67,27 +63,24 @@ public class OrderTest {
 		assertThat(order.getId()).isEqualTo(dto.getId());
 		assertThat(order.getDate()).isEqualTo(dto.getDate());
 		assertThat(order.getTotalAmount()).isEqualTo(dto.getTotalAmount());
+//		assertThat(order.getUser()).isEqualTo(dto.getUser());
+//		assertThat(order.getLines()).isEqualTo(dto.getLines());
 
 
 	}
 
 	/**
-	 * test for OrderDTO to Order entity
+	 * test for OrderDTO to Order entity.
 	 */
 	@Test
-	public void OrderToEntity() {
+	public void orderToEntity() {
 		// given
 		OrderDTO dto = new OrderDTO();
 
 		dto.setId((long) 1);
-		dto.setDate(null);
-		dto.setTotalAmount((double) 25);
-		dto.setUser(new UserDTO((long) 1, "0605558899", "0258963", "nom", "prenom", "address"));
-		List<OrderLineDTO> lines = new ArrayList<>();
-		for (long i = 0; i < 2; i++) {
-			lines.add(new OrderLineDTO(i, (long) 1, (short) 25));
-		}
-		
+		dto.setDate(new Date());
+		dto.setTotalAmount((double) MagicNumber.SIZESMALL);
+		dto.setUser(new User());
 		dto.setLines(null);
 
 
@@ -98,11 +91,44 @@ public class OrderTest {
 		assertThat(dto.getId()).isEqualTo(order.getId());
 		assertThat(dto.getDate()).isEqualTo(order.getDate());
 		assertThat(dto.getTotalAmount()).isEqualTo(order.getTotalAmount());
+		assertThat(dto.getUser()).isEqualTo(order.getUser());
+//		assertThat(dto.getLines()).isEqualTo(order.getLines());
 
 	}
 
 	/**
-	 * test for a List of Order entity null to List of OrderDTO
+	 * Test for Order null entity to a OrderDTO.
+	 */
+	@Test
+	void orderNullToDto() {
+		// given
+		Order order = null;
+
+		// when
+		OrderDTO dto = OrderMapper.toDto(order);
+
+		// then
+		assertEquals(order, dto);
+	}
+
+	/**
+	 * Test for Order null entity to a OrderDTO.
+	 */
+	@Test
+	void testTest() {
+		// given
+		OrderDTO dto = null;
+
+		// when
+		Order order = OrderMapper.toEntity(dto);
+
+		// then
+		assertEquals(dto, order);
+	}
+
+
+	/**
+	 * test for a List of Order entity null to List of OrderDTO.
 	 */
 	@Test
 	public void listOrderNullToOrderDto() {
@@ -114,10 +140,11 @@ public class OrderTest {
 
 		// then
 		assertThat(dtos).isNull();
+		assertEquals(order, dtos);
 	}
 
 	/**
-	 * test for a List of Order entity empty to List of OrderDTO
+	 * test for a List of Order entity empty to List of OrderDTO.
 	 */
 	@Test
 	public void listOrderEmptyToOrderDto() {
@@ -133,7 +160,7 @@ public class OrderTest {
 	}
 
 	/**
-	 * test for a List of Order entity to List of OrderDTO
+	 * test for a List of Order entity to List of OrderDTO.
 	 */
 	@Test
 	public void listOrdertoListOrderDto() {
@@ -147,7 +174,7 @@ public class OrderTest {
 		}
 
 		for (long i = 0; i < 2; i++) {
-			orders.add(new Order((long) 1, null, (double) 25, lines, user));
+			orders.add(new Order((long) 1, null, (double) MagicNumber.SIZESMALL, lines, user));
 		}
 
 		// when

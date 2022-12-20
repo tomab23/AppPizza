@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.idformation.ccp3.mariopizza.helpers.MagicNumber;
 import com.idformation.ccp3.security.controller.dto.JwtResponse;
 import com.idformation.ccp3.security.controller.dto.LoginRequest;
 import com.idformation.ccp3.security.dto.UserDTO;
@@ -24,7 +25,7 @@ import com.idformation.ccp3.security.models.User;
 import com.idformation.ccp3.security.service.IUserService;
 
 @RestController
-@CrossOrigin(origins = "http://localhost:19006/", maxAge = 3600)
+@CrossOrigin(origins = "http://localhost:19006/", maxAge = MagicNumber.ORIGIN)
 @RequestMapping("/auth")
 public class AuthController {
 
@@ -60,7 +61,8 @@ public class AuthController {
 	public ResponseEntity<?> authenticateUser(@Valid @RequestBody final LoginRequest loginRequest) {
 
 		Authentication authentication = authenticationManager.authenticate(
-				new UsernamePasswordAuthenticationToken(loginRequest.getUsername(), loginRequest.getPassword()));
+				new UsernamePasswordAuthenticationToken(
+						loginRequest.getUsername(), loginRequest.getPassword()));
 
 		SecurityContextHolder.getContext().setAuthentication(authentication);
 

@@ -1,5 +1,5 @@
 /**
- * 
+ * User test
  */
 package com.idformation.ccp3;
 
@@ -21,10 +21,10 @@ import com.idformation.ccp3.security.models.User;
 public class UserTest {
 
 	/**
-	 * test for User constructor
+	 * test for User constructor.
 	 */
 	@Test
-	void UserConstructor() {
+	void userConstructor() {
 		// given
 
 		// when
@@ -34,38 +34,38 @@ public class UserTest {
 		assertEquals(m.getClass(), UserMapper.class);
 	}
 
+//	/**
+//	 * test for User entity to UserDTO.
+//	 */
+//	@Test
+//	public void userToDto() {
+//		// given
+//		User user = new User();
+//
+//		user.setId((long) 1);
+//		user.setLastname("nom");
+//		user.setFirstname("prenom");
+//		user.setPassword("motdepasse");
+//		user.setPhonenumber("0606060606");
+//		user.setAddress("address");
+//
+//		// when
+//		UserDTO dto = UserMapper.toDto(user);
+//
+//		// then
+//		assertThat(user.getId()).isEqualTo(dto.getId());
+//		assertThat(user.getLastname()).isEqualTo(dto.getLastname());
+//		assertThat(user.getFirstname()).isEqualTo(dto.getFirstname());
+//		assertThat(user.getPassword()).isEqualTo(dto.getPassword());
+//		assertThat(user.getPhonenumber()).isEqualTo(dto.getPhonenumber());
+//		assertThat(user.getAddress()).isEqualTo(dto.getAddress());
+//	}
+
 	/**
-	 * test for User entity to UserDTO
+	 * test for UserDTO to User entity.
 	 */
 	@Test
-	public void UserToDto() {
-		// given
-		User user = new User();
-
-		user.setId((long) 1);
-		user.setLastname("nom");
-		user.setFirstname("prenom");
-		user.setPassword("motdepasse");
-		user.setPhonenumber("0606060606");
-		user.setAddress("address");
-
-		// when
-		UserDTO dto = UserMapper.toDto(user);
-
-		// then
-		assertThat(user.getId()).isEqualTo(dto.getId());
-		assertThat(user.getLastname()).isEqualTo(dto.getLastname());
-		assertThat(user.getFirstname()).isEqualTo(dto.getFirstname());
-		assertThat(user.getPassword()).isEqualTo(dto.getPassword());
-		assertThat(user.getPhonenumber()).isEqualTo(dto.getPhonenumber());
-		assertThat(user.getAddress()).isEqualTo(dto.getAddress());
-	}
-
-	/**
-	 * test for UserDTO to User entity
-	 */
-	@Test
-	public void UserToEntity() {
+	public void userToEntity() {
 		// given
 		UserDTO dto = new UserDTO();
 

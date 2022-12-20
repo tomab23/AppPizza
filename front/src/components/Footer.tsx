@@ -6,7 +6,6 @@ import { RouteParams } from '../Routes/RootNavigator';
 import Pizza from '../models/Pizza';
 import OrderService from '../service/OrderService';
 import Order from '../models/Order';
-import User from '../models/User';
 
 
 
@@ -19,7 +18,7 @@ const Footer = (props: any) => {
     // Constante qui contient le prix total
     const [total, setTotal] = useState(0)
 
-    console.log('total : '+ total);
+    console.log('total : '+ total.toFixed(1));
 
     // Confirme la commande (et va envoyer la commande dans la base de données)
     const ConfirmButton = () => {
@@ -29,15 +28,17 @@ const Footer = (props: any) => {
         return;
       } else {
         let test = new Order(total, order)
-       
-        // OrderService.addOrder(test)
+
+        console.log('commande : ',test);
+        
+        OrderService.userOrder(test);
 
         navigation.navigate('Final')  
       }
       
       }
 
-      // Calcul le rpix total des pizzas commander
+      // Calcul le prix total des pizzas commander
       useEffect(() => {
         let total = 0.0;
         order.forEach((item: any) => {
@@ -53,7 +54,7 @@ const Footer = (props: any) => {
     <View style={styles.footer}>
         <Text style={styles.textPrix}> Total: {total.toFixed(1)}€ </Text>
         <Pressable style={styles.valider} onPress={ConfirmButton}>
-            <Text style={styles.textValider}>dijsfhsifhdsij</Text>
+            <Text style={styles.textValider}>Valider</Text>
         </Pressable>
     </View>
   )

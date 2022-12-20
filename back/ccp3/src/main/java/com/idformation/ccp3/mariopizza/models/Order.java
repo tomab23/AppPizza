@@ -64,42 +64,43 @@ public class Order {
 	}
 
 	/**
-	 * @param id    the id
-	 * @param date  the date
-	 * @param total the total
-	 * @param lines the lines
-	 * @param user  the user
+	 * @param pId   the id of Order
+	 * @param pDate  the date of Order
+	 * @param total the total of Order
+	 * @param pLines the lines of Order
+	 * @param pUser  the User of Order
 	 */
-	public Order(long id, Date date, double total, List<OrderLine> lines, User user) {
+	public Order(final long pId, final Date pDate, final double total,
+			final List<OrderLine> pLines, final User pUser) {
 		super();
-		this.id = id;
-		this.date = date;
+		this.id = pId;
+		this.date = pDate;
 		this.totalAmount = total;
-		this.lines = lines;
-		this.user = user;
+		this.lines = pLines;
+		this.user = pUser;
 	}
 
 
 	/**
-	 * @param id the id
+	 * @param pId the id of Order.
 	 */
-	public Order(final long id) {
+	public Order(final long pId) {
 		super();
-		this.id = id;
+		this.id = pId;
 	}
 
 	/**
-	 * @param id    the id
-	 * @param date  the date
+	 * @param pId    the id
+	 * @param pDate  the date
 	 * @param total the total
-	 * @param user  the user
+	 * @param pUser  the user
 	 */
-	public Order(long id, Date date, double total, User user) {
+	public Order(final long pId,final Date pDate, final double total, final User pUser) {
 		super();
-		this.id = id;
-		this.date = date;
+		this.id = pId;
+		this.date = pDate;
 		this.totalAmount = total;
-		this.user = user;
+		this.user = pUser;
 	}
 
 	/**
@@ -150,40 +151,38 @@ public class Order {
 	}
 
 	/**
-	 * @param date the date to set
+	 * @param pDate the date to set
 	 */
-	public void setDate(final Date date) {
-		this.date = date;
+	public void setDate(final Date pDate) {
+		this.date = pDate;
 	}
 
 	/**
-	 * @param id the id to set
+	 * @param pId the id to set
 	 */
-	public void setId(final Long id) {
-		this.id = id;
+	public void setId(final Long pId) {
+		this.id = pId;
 	}
 
 	/**
-	 * @param lines the lines to set
+	 * @param pLines the lines to set
 	 */
-	public void setLines(final List<OrderLine> lines) {
-		this.lines = lines;
+	public void setLines(final List<OrderLine> pLines) {
+		this.lines = pLines;
 	}
 
 	/**
-	 * @param totalAmount the totalAmount to set
+	 * @param pTotalAmount the totalAmount to set
 	 */
-	public void setTotalAmount(final Double totalAmount) {
-		this.totalAmount = totalAmount;
+	public void setTotalAmount(final Double pTotalAmount) {
+		this.totalAmount = pTotalAmount;
 	}
 
 	/**
-	 * @param user the user to set
+	 * @param pUser the user to set
 	 */
-	public void setUser(final User user) {
-		this.user = user;
+	public void setUser(final User pUser) {
+		this.user = pUser;
 	}
-
-
-
 }
+

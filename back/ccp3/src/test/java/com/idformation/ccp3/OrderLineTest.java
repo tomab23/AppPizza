@@ -1,5 +1,5 @@
 /**
- * 
+ * OrderLine test
  */
 package com.idformation.ccp3;
 
@@ -12,14 +12,12 @@ import java.util.List;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
-import com.idformation.ccp3.mariopizza.dto.OrderDTO;
 import com.idformation.ccp3.mariopizza.dto.OrderLineDTO;
-import com.idformation.ccp3.mariopizza.dto.PizzaDTO;
+import com.idformation.ccp3.mariopizza.helpers.MagicNumber;
 import com.idformation.ccp3.mariopizza.mapper.OrderLineMapper;
 import com.idformation.ccp3.mariopizza.models.Order;
 import com.idformation.ccp3.mariopizza.models.OrderLine;
 import com.idformation.ccp3.mariopizza.models.Pizza;
-import com.idformation.ccp3.security.dto.UserDTO;
 import com.idformation.ccp3.security.models.User;
 
 /**
@@ -31,10 +29,10 @@ public class OrderLineTest {
 
 
 	/**
-	 * test for OrderLine constructor
+	 * test for OrderLine constructor.
 	 */
 	@Test
-	void OrderLineConstructor() {
+	void orderLineConstructor() {
 		// given
 
 		// when
@@ -45,7 +43,7 @@ public class OrderLineTest {
 	}
 
 	/**
-	 * test for OrderLine entity to OrderLineDTO
+	 * test for OrderLine entity to OrderLineDTO.
 	 */
 	@Test
 	public void lineToDto() {
@@ -54,7 +52,8 @@ public class OrderLineTest {
 
 		line.setId((long) 1);
 		line.setQuantity((short) 2);
-		line.setPizza(new Pizza((long) 1, "hawaienne", "plein de choses", "image", (double) 10));
+		line.setPizza(new Pizza((long) 1, "hawaienne", "plein de choses", "image", (
+				double) MagicNumber.SIZESMALL));
 		line.setOrder(new Order((long) 1));
 
 
@@ -64,22 +63,24 @@ public class OrderLineTest {
 		// then
 		assertThat(line.getId()).isEqualTo(dto.getId());
 		assertThat(line.getQuantity()).isEqualTo(dto.getQuantity());
+		assertEquals(line.getOrder(), dto.getOrder());
+		assertEquals(line.getPizza(), dto.getPizza());
 
 	}
 
 	/**
-	 * test for OrderLineDTO to OrderLine entity
+	 * test for OrderLineDTO to OrderLine entity.
 	 */
 	@Test
 	public void lineDtoToEntity() {
 		// given
 		OrderLineDTO dto = new OrderLineDTO();
-		UserDTO user = new UserDTO((long) 1, "0605998899", "445566", "prenom", "nom", "rue du test");
 
 		dto.setId((long) 1);
 		dto.setQuantity((short) 2);
-		dto.setPizza(new PizzaDTO((long) 1, "hawaienne", "plein de choses", "image", (double) 10));
-		dto.setOrder(new OrderDTO((long) 1, null, 25, user));
+		dto.setPizza(new Pizza((long) 1, "hawaienne", "plein de choses", "image", (
+				double) MagicNumber.SIZESMALL));
+		dto.setOrder(new Order((long) 1));
 
 		// when
 		OrderLine line = OrderLineMapper.toEntity(dto);
@@ -87,11 +88,43 @@ public class OrderLineTest {
 		// then
 		assertThat(dto.getId()).isEqualTo(line.getId());
 		assertThat(dto.getQuantity()).isEqualTo(line.getQuantity());
+		assertEquals(dto.getOrder(), line.getOrder());
+		assertEquals(dto.getPizza(), line.getPizza());
 
 	}
 
 	/**
-	 * test for a List of OrderLine entity null to List of OrderLineDTO
+	 * Test for convert a OrderLine null entity to a OrderLineDTO.
+	 */
+	@Test
+	void orderLineNullToDto() {
+		// given
+		OrderLine line = null;
+
+		// when
+		OrderLineDTO dto = OrderLineMapper.toDto(line);
+
+		// then
+		assertEquals(line, dto);
+	}
+
+	/**
+	 * Test for convert a OrderLine null entity to a OrderLineDTO.
+	 */
+	@Test
+	void orderLineDtoNulToEntity() {
+		// given
+		OrderLineDTO dto = null;
+
+		// when
+		OrderLine line = OrderLineMapper.toEntity(dto);
+
+		// then
+		assertEquals(line, dto);
+	}
+
+	/**
+	 * test for a List of OrderLine entity null to List of OrderLineDTO.
 	 */
 	@Test
 	public void listOrderLineNullToOrderLineDto() {
@@ -106,7 +139,7 @@ public class OrderLineTest {
 	}
 
 	/**
-	 * test for a List of OrderLine entity empty to List of OrderLineDTO
+	 * test for a List of OrderLine entity empty to List of OrderLineDTO.
 	 */
 	@Test
 	public void listOrderLineEmptyToOrderLineDto() {
@@ -122,28 +155,27 @@ public class OrderLineTest {
 	}
 
 	/**
-	 * test for a List of OrderLine entity to List of OrderLineDTO
+	 * test for a List of OrderLine entity to List of OrderLineDTO.
 	 */
 	@Test
 	public void listOrderLineToListOrderLineDto() {
 		// given
-		List<OrderLine> ols = new ArrayList<>();
-		Pizza pizza = new Pizza((long) 1, "pizza", "description", "image", (double) 10);
+		List<OrderLine> lines = new ArrayList<>();
+		Pizza pizza = new Pizza((long) 1, "pizza", "description", "image", (double) MagicNumber.SIZESMALL);
 		User user = new User((long) 1, "0605998899", "445566", "prenom", "nom", "rue du test");
-		Order order = new Order((long) 1, null, 25, user);
+		Order order = new Order((long) 1, null, MagicNumber.SIZESMALL, user);
 
 
 
 		for (long i = 0; i < 2; i++) {
-			ols.add(new OrderLine((long) 1, (short) 2, pizza, order));
+			lines.add(new OrderLine((long) 1, (short) 2, pizza, order));
 		}
 
+
 		// when
-		List<OrderLineDTO> dtos = OrderLineMapper.listToListDto(ols);
+		List<OrderLineDTO> dtos = OrderLineMapper.listToListDto(lines);
 
 		// then
-		assertThat(dtos).isNotNull().hasSameSizeAs(ols);
+		assertThat(dtos).isNotNull().hasSameSizeAs(lines);
 	}
-
-
 }

@@ -16,6 +16,8 @@ import javax.validation.constraints.Size;
 
 import org.springframework.lang.NonNull;
 
+import com.idformation.ccp3.mariopizza.helpers.MagicNumber;
+
 @Entity
 @Table(name = "users")
 public class User {
@@ -31,42 +33,43 @@ public class User {
 	 * the phonenumber.
 	 */
 	@NonNull
-	@Size(max = 20)
+	@Size(max = MagicNumber.SIZESMALL)
 	private String phonenumber;
 
 	/**
 	 * the password.
 	 */
 	@NonNull
-	@Size(max = 120)
+	@Size(max = MagicNumber.SIZELONG)
 	private String password;
 
 	/**
 	 * the firstname.
 	 */
 	@NonNull
-	@Size(max = 120)
+	@Size(max = MagicNumber.SIZELONG)
 	private String firstname;
 
 	/**
 	 * the lastname.
 	 */
 	@NonNull
-	@Size(max = 120)
+	@Size(max = MagicNumber.SIZELONG)
 	private String lastname;
 
 	/**
 	 * the address.
 	 */
 	@NonNull
-	@Size(max = 120)
+	@Size(max = MagicNumber.SIZELONG)
 	private String address;
 
 	/**
 	 * the role of User.
 	 */
 	@ManyToMany(fetch = FetchType.LAZY)
-	@JoinTable(name = "user_roles", joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "role_id"))
+	@JoinTable(name = "user_roles", joinColumns =
+	@JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "role_id"))
 	private Set<Role> roles = new HashSet<>();
 
 
@@ -79,24 +82,27 @@ public class User {
 	}
 
 	/**
-	 * @param id the id
-	 * @param phonenumber the phonenumber
-	 * @param password the password
-	 * @param firstname the firstname
-	 * @param lastname the lastname
-	 * @param address the adress
+	 * @param pId the id
+	 * @param pPhonenumber the phonenumber
+	 * @param pPassword the password
+	 * @param pFirstname the firstname
+	 * @param pLastname the lastname
+	 * @param pAddress the adress
 	 */
-	public User(Long id, @Size(max = 20) String phonenumber, @Size(max = 120) String password,
-			@Size(max = 120) String firstname, @Size(max = 120) String lastname, @Size(max = 120) String address) {
+	public User(final Long pId, final @Size(max = MagicNumber.SIZESMALL)
+	String pPhonenumber, final @Size(max = MagicNumber.SIZELONG)
+	String pPassword,
+			final @Size(max = MagicNumber.SIZELONG) String pFirstname,
+			final @Size(max = MagicNumber.SIZELONG) String pLastname,
+			final @Size(max = MagicNumber.SIZELONG) String pAddress) {
 		super();
-		this.id = id;
-		this.phonenumber = phonenumber;
-		this.password = password;
-		this.firstname = firstname;
-		this.lastname = lastname;
-		this.address = address;
+		this.id = pId;
+		this.phonenumber = pPhonenumber;
+		this.password = pPassword;
+		this.firstname = pFirstname;
+		this.lastname = pLastname;
+		this.address = pAddress;
 	}
-
 
 	/**
 	 * @return the address
@@ -148,54 +154,51 @@ public class User {
 	}
 
 	/**
-	 * @param address the address to set
+	 * @param pAddress the address to set
 	 */
-	public void setAddress(final String address) {
-		this.address = address;
+	public void setAddress(final String pAddress) {
+		this.address = pAddress;
 	}
 
 	/**
-	 * @param firstname the firstname to set
+	 * @param pFirstname the firstname to set
 	 */
-	public void setFirstname(final String firstname) {
-		this.firstname = firstname;
+	public void setFirstname(final String pFirstname) {
+		this.firstname = pFirstname;
 	}
 
 	/**
-	 * @param id the id to set
+	 * @param pId the id to set
 	 */
-	public void setId(final Long id) {
-		this.id = id;
+	public void setId(final Long pId) {
+		this.id = pId;
 	}
 
 	/**
-	 * @param lastname the lastname to set
+	 * @param pLastname the lastname to set
 	 */
-	public void setLastname(final String lastname) {
-		this.lastname = lastname;
+	public void setLastname(final String pLastname) {
+		this.lastname = pLastname;
 	}
 
 	/**
-	 * @param password the password to set
+	 * @param pPassword the password to set
 	 */
-	public void setPassword(final String password) {
-		this.password = password;
+	public void setPassword(final String pPassword) {
+		this.password = pPassword;
 	}
 
 	/**
-	 * @param phonenumber the phonenumber to set
+	 * @param pPhonenumber the phonenumber to set
 	 */
-	public void setPhonenumber(final String phonenumber) {
-		this.phonenumber = phonenumber;
+	public void setPhonenumber(final String pPhonenumber) {
+		this.phonenumber = pPhonenumber;
 	}
 
 	/**
-	 * @param roles the roles to set
+	 * @param pRoles the roles to set
 	 */
-	public void setRoles(final Set<Role> roles) {
-		this.roles = roles;
+	public void setRoles(final Set<Role> pRoles) {
+		this.roles = pRoles;
 	}
-
-
-
 }

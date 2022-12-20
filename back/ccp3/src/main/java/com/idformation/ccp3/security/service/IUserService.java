@@ -1,5 +1,5 @@
 /**
- * 
+ *  interface for UserService
  */
 package com.idformation.ccp3.security.service;
 
@@ -21,9 +21,9 @@ public interface IUserService {
 	User saveUser(User entity);
 
 	/**
-	 * @param phonenumber
+	 * @param username
 	 * @return phonenumber of User
 	 */
-	Optional<User> findByPhonenumber(String phonenumber);
+	Optional<User> findByUsername(String username);
 
 }

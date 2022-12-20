@@ -1,5 +1,5 @@
 /**
- * 
+ *  interface for OrderLineService
  */
 package com.idformation.ccp3.mariopizza.service;
 

@@ -13,46 +13,61 @@ import javax.persistence.Table;
 @Table(name = "order_line")
 public class OrderLine {
 
+	/**
+	 * the id of OrderLine.
+	 */
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 
+	/**
+	 * the Order of OrderLine.
+	 */
 	@ManyToOne
 	@JoinColumn(name="ord_id", referencedColumnName = "id", nullable = false)
 	private Order order;
 
+	/**
+	 * the Pizza of OrderLine.
+	 */
 	@ManyToOne
 	@JoinColumn(name="piz_id", referencedColumnName = "id", nullable = false)
 	private Pizza pizza;
 
+	/**
+	 * the quantity of OrderLine.
+	 */
 	@Column(name="quantity")
 	private Short quantity;
 
+	/**
+	 * OrderLine constructor.
+	 */
 	public OrderLine() {
 		super();
 	}
 
 	/**
-	 * @param line
-	 *
+	 * @param pId
 	 */
-	public OrderLine(Long id) {
+	public OrderLine(final Long pId) {
 		super();
-		this.id = id;
+		this.id = pId;
 	}
 
-	public OrderLine(long i, long id, short quantity) {
-		super();
-		this.id = id;
-		this.quantity = quantity;
-	}
 
-	public OrderLine(long id, short s, Pizza pizza, Order order) {
+	/**
+	 * @param pId is id of OrderLine
+	 * @param pQuantity is quantity of OrderLine
+	 * @param pPizza is a Pizza of OrderLine
+	 * @param pOrder is a Order of OrderLine
+	 */
+	public OrderLine(final long pId, final short pQuantity, final Pizza pPizza, final Order pOrder) {
 		super();
-		this.id = id;
-		this.quantity = s;
-		this.pizza = pizza;
-		this.order = order;
+		this.id = pId;
+		this.quantity = pQuantity;
+		this.pizza = pPizza;
+		this.order = pOrder;
 	}
 
 	/**
@@ -84,33 +99,30 @@ public class OrderLine {
 	}
 
 	/**
-	 * @param id the id to set
+	 * @param pId the id to set
 	 */
-	public void setId(final Long id) {
-		this.id = id;
+	public void setId(final Long pId) {
+		this.id = pId;
 	}
 
 	/**
-	 * @param order the order to set
+	 * @param pOrder the order to set
 	 */
-	public void setOrder(final Order order) {
-		this.order = order;
+	public void setOrder(final Order pOrder) {
+		this.order = pOrder;
 	}
 
 	/**
-	 * @param pizza the pizza to set
+	 * @param pPizza the pizza to set
 	 */
-	public void setPizza(final Pizza pizza) {
-		this.pizza = pizza;
+	public void setPizza(final Pizza pPizza) {
+		this.pizza = pPizza;
 	}
 
 	/**
-	 * @param quantity the quantity to set
+	 * @param pQuantity the quantity to set
 	 */
-	public void setQuantity(final Short quantity) {
-		this.quantity = quantity;
+	public void setQuantity(final Short pQuantity) {
+		this.quantity = pQuantity;
 	}
-
-
-
 }

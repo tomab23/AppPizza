@@ -1,7 +1,7 @@
-/**
- * 
- */
 package com.idformation.ccp3.mariopizza.dto;
+
+import com.idformation.ccp3.mariopizza.models.Order;
+import com.idformation.ccp3.mariopizza.models.Pizza;
 
 /**
  * @author Stagiaire
@@ -10,41 +10,30 @@ package com.idformation.ccp3.mariopizza.dto;
 public class OrderLineDTO {
 
 	/**
-	 * the id.
+	 * the id of OrderLineDTO.
 	 */
 	private Long id;
 
 	/**
-	 * the quantity.
+	 * the quantity of OrderLineDTO.
 	 */
 	private Short quantity;
 
 	/**
-	 * the Order.
+	 * the Order of OrderLineDTO.
 	 */
-	private OrderDTO order;
+	private Order order;
 
 	/**
-	 * the Pizza.
+	 * the Pizza of OrderLineDTO.
 	 */
-	private PizzaDTO pizza;
+	private Pizza pizza;
 
 	/**
-	 * OrderLine Constructor.
+	 * OrderLineDTO Constructor.
 	 */
 	public OrderLineDTO() {
 		super();
-	}
-
-	/**
-	 * @param i
-	 * @param id       the id
-	 * @param quantity the quantity
-	 */
-	public OrderLineDTO(final long i, final long id, final short quantity) {
-		super();
-		this.id = id;
-		this.quantity = quantity;
 	}
 
 	/**
@@ -55,10 +44,10 @@ public class OrderLineDTO {
 	}
 
 	/**
-	 * @param id the id to set
+	 * @param pId the id to set
 	 */
-	public void setId(final Long id) {
-		this.id = id;
+	public void setId(final Long pId) {
+		this.id = pId;
 	}
 
 	/**
@@ -69,40 +58,37 @@ public class OrderLineDTO {
 	}
 
 	/**
-	 * @param quantity the quantity to set
+	 * @param pQuantity the quantity to set
 	 */
-	public void setQuantity(final Short quantity) {
-		this.quantity = quantity;
+	public void setQuantity(final Short pQuantity) {
+		this.quantity = pQuantity;
 	}
 
 	/**
 	 * @return the order
 	 */
-	public OrderDTO getOrder() {
+	public Order getOrder() {
 		return order;
 	}
 
 	/**
-	 * @param order the order to set
+	 * @param pOrder the order to set
 	 */
-	public void setOrder(final OrderDTO order) {
-		this.order = order;
+	public void setOrder(final Order pOrder) {
+		this.order = pOrder;
 	}
 
 	/**
 	 * @return the pizza
 	 */
-	public PizzaDTO getPizza() {
+	public Pizza getPizza() {
 		return pizza;
 	}
 
 	/**
-	 * @param pizza the pizza to set
+	 * @param pPizza the pizza to set
 	 */
-	public void setPizza(final PizzaDTO pizza) {
-		this.pizza = pizza;
+	public void setPizza(final Pizza pPizza) {
+		this.pizza = pPizza;
 	}
-
-
-
 }

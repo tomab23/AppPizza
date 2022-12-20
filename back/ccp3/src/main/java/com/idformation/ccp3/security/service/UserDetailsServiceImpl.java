@@ -15,11 +15,19 @@ import com.idformation.ccp3.security.service.utils.UserMapper;
 @Transactional
 public class UserDetailsServiceImpl implements UserDetailsService {
 
+	/**
+	 * call User repository.
+	 */
 	@Autowired
 	private UserRepository userRepository;
 
+	/**
+	 * Mathod for find User with is username.
+	 * @param username about User
+	 * @return UserPrincipal entity
+	 */
 	@Override
-	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+	public UserDetails loadUserByUsername(final String username) throws UsernameNotFoundException {
 		User user = userRepository.findByUsername(username)
 				.orElseThrow(() -> new UsernameNotFoundException("User NOT Found"));
 		return UserMapper.userToPrincipal(user);

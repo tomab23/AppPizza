@@ -1,4 +1,5 @@
 /**
+ *  interface for Order entity Repository
  */
 package com.idformation.ccp3.mariopizza.repository;
 

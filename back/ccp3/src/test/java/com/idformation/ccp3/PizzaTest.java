@@ -1,5 +1,5 @@
 /**
- * 
+ *  Pizza test
  */
 package com.idformation.ccp3;
 
@@ -13,6 +13,7 @@ import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import com.idformation.ccp3.mariopizza.dto.PizzaDTO;
+import com.idformation.ccp3.mariopizza.helpers.MagicNumber;
 import com.idformation.ccp3.mariopizza.mapper.PizzaMapper;
 import com.idformation.ccp3.mariopizza.models.Pizza;
 
@@ -27,7 +28,7 @@ public class PizzaTest {
 	 * test for Pizza constructor.
 	 */
 	@Test
-	void PizzaConstructor() {
+	void pizzaConstructor() {
 		// given
 
 		// when
@@ -38,7 +39,7 @@ public class PizzaTest {
 	}
 
 	/**
-	 * test for Pizza entity to PizzaDTO
+	 * test for Pizza entity to PizzaDTO.
 	 */
 	@Test
 	public void pizzaToDto() {
@@ -49,7 +50,7 @@ public class PizzaTest {
 		piz.setName("hawaienne");
 		piz.setDescription("plein de choses");
 		piz.setImage("image");
-		piz.setPrice((double) 10);
+		piz.setPrice((double) MagicNumber.SIZESMALL);
 
 		// when
 		PizzaDTO dto = PizzaMapper.toDto(piz);
@@ -63,7 +64,7 @@ public class PizzaTest {
 	}
 
 	/**
-	 * test for PizzaDTO to Pizza entity
+	 * test for PizzaDTO to Pizza entity.
 	 */
 	@Test
 	public void pizzaDtoToEntity() {
@@ -74,7 +75,7 @@ public class PizzaTest {
 		dto.setName("hawaienne");
 		dto.setDescription("plein de choses");
 		dto.setImage("image");
-		dto.setPrice((double) 10);
+		dto.setPrice((double) MagicNumber.SIZESMALL);
 
 		// when
 		Pizza piz = PizzaMapper.toEntity(dto);
@@ -88,7 +89,7 @@ public class PizzaTest {
 	}
 
 	/**
-	 * test for a List of Pizza entity null to List of PizzaDTO
+	 * test for a List of Pizza entity null to List of PizzaDTO.
 	 */
 	@Test
 	public void listPizzaNullToPizzaDto() {
@@ -103,7 +104,7 @@ public class PizzaTest {
 	}
 
 	/**
-	 * test for a List of Pizza entity empty to List of PizzaDTO
+	 * test for a List of Pizza entity empty to List of PizzaDTO.
 	 */
 	@Test
 	public void listPizzaEmptyToPizzaDto() {
@@ -119,7 +120,7 @@ public class PizzaTest {
 	}
 
 	/**
-	 * test for a List of Pizza entity to List of PizzaDTO
+	 * test for a List of Pizza entity to List of PizzaDTO.
 	 */
 	@Test
 	public void listPizzatoListPizzaDto() {
@@ -127,7 +128,8 @@ public class PizzaTest {
 		List<Pizza> pizs = new ArrayList<>();
 
 		for (long i = 0; i < 2; i++) {
-			pizs.add(new Pizza((long) 1, "hawaienne", "plein de choses", "image", (double) 10));
+			pizs.add(new Pizza((long) 1, "hawaienne", "plein de choses", "image", (
+					double) MagicNumber.SIZESMALL));
 		}
 
 		// when

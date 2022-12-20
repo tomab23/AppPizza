@@ -27,10 +27,10 @@ public class LoginRequest {
 	}
 
 	/**
-	 * @param username the username to set
+	 * @param pUsername the username to set
 	 */
-	public void setUsername(final String username) {
-		this.username = username;
+	public void setUsername(final String pUsername) {
+		this.username = pUsername;
 	}
 
 	/**
@@ -41,10 +41,10 @@ public class LoginRequest {
 	}
 
 	/**
-	 * @param password the password to set
+	 * @param pPassword the password to set
 	 */
-	public void setPassword(final String password) {
-		this.password = password;
+	public void setPassword(final String pPassword) {
+		this.password = pPassword;
 	}
 
 }

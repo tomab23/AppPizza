@@ -1,5 +1,5 @@
 /**
- * 
+ *  Order service
  */
 package com.idformation.ccp3.mariopizza.service.impl;
 
@@ -28,15 +28,6 @@ public class OrderService implements IOrderService {
 	 */
 	@Override
 	public Order saveOrder(final Order order) {
-		Order save = orderRepo.save(order);
-
-//		save.setTotalAmount(orderRepo.computeAmount(save.getId()));
-
-		orderRepo.save(save);
-
-		return save;
-
+		return orderRepo.saveAndFlush(order);
 	}
-
-
 }

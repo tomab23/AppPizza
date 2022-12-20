@@ -1,5 +1,5 @@
 /**
- * 
+ *  Mapper for User
  */
 package com.idformation.ccp3.security.mapper;
 
@@ -25,6 +25,7 @@ public class UserMapper {
 	}
 
 	/**
+	 * Transform User entity to UserDTO.
 	 * @param use User entity
 	 * @return dto UserDTO
 	 */
@@ -33,17 +34,18 @@ public class UserMapper {
 
 		if (use != null) {
 			dto = new UserDTO();
-		dto.setId(use.getId());
-		dto.setFirstname(use.getFirstname());
-		dto.setLastname(use.getLastname());
-		dto.setPassword(use.getPassword());
-		dto.setPhonenumber(use.getPhonenumber());
-		dto.setAddress(use.getAddress());
+			dto.setId(use.getId());
+			dto.setFirstname(use.getFirstname());
+			dto.setLastname(use.getLastname());
+			dto.setPassword(use.getPassword());
+			dto.setPhonenumber(use.getPhonenumber());
+			dto.setAddress(use.getAddress());
 	}
 		return dto;
 	}
 
 	/**
+	 * Transform UserDTO to User entity.
 	 * @param dto UserDTO
 	 * @return use User entity
 	 */
@@ -52,12 +54,12 @@ public class UserMapper {
 
 		if (dto != null) {
 			use = new User();
-		use.setId(dto.getId());
-		use.setFirstname(dto.getFirstname());
-		use.setLastname(dto.getLastname());
-		use.setPassword(encoder(dto.getPassword()));
-		use.setPhonenumber(dto.getPhonenumber());
-		use.setAddress(dto.getAddress());
+			use.setId(dto.getId());
+			use.setFirstname(dto.getFirstname());
+			use.setLastname(dto.getLastname());
+			use.setPassword(encoder(dto.getPassword()));
+			use.setPhonenumber(dto.getPhonenumber());
+			use.setAddress(dto.getAddress());
 	}
 		return use;
 	}

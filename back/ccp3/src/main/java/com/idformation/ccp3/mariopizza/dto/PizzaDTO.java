@@ -1,5 +1,5 @@
 /**
- * 
+ *  PizzaDTO a dto about Pizza entity
  */
 package com.idformation.ccp3.mariopizza.dto;
 
@@ -10,27 +10,27 @@ package com.idformation.ccp3.mariopizza.dto;
 public class PizzaDTO {
 
 	/**
-	 * the id.
+	 * the id of PizzaDTO.
 	 */
 	private Long id;
 
 	/**
-	 * the name.
+	 * the name of PizzaDTO.
 	 */
 	private String name;
 
 	/**
-	 * the description.
+	 * the description of PizzaDTO.
 	 */
 	private String description;
 
 	/**
-	 * the image.
+	 * the image of PizzaDTO.
 	 */
 	private String image;
 
 	/**
-	 * the price.
+	 * the price of PizzaDTO.
 	 */
 	private Double price;
 
@@ -42,22 +42,6 @@ public class PizzaDTO {
 	}
 
 	/**
-	 * @param id    the id
-	 * @param name  the name
-	 * @param desc  the description
-	 * @param img   the image
-	 * @param price the price
-	 */
-	public PizzaDTO(long id, String name, String desc, String img, double price) {
-		super();
-		this.id = id;
-		this.name = name;
-		this.description = desc;
-		this.image = img;
-		this.price = price;
-	}
-
-	/**
 	 * @return the id
 	 */
 	public Long getId() {
@@ -65,10 +49,10 @@ public class PizzaDTO {
 	}
 
 	/**
-	 * @param id the id to set
+	 * @param pId the id to set
 	 */
-	public void setId(final Long id) {
-		this.id = id;
+	public void setId(final Long pId) {
+		this.id = pId;
 	}
 
 	/**
@@ -79,10 +63,10 @@ public class PizzaDTO {
 	}
 
 	/**
-	 * @param name the name to set
+	 * @param pName the name to set
 	 */
-	public void setName(final String name) {
-		this.name = name;
+	public void setName(final String pName) {
+		this.name = pName;
 	}
 
 	/**
@@ -93,10 +77,10 @@ public class PizzaDTO {
 	}
 
 	/**
-	 * @param description the description to set
+	 * @param pDescription the description to set
 	 */
-	public void setDescription(final String description) {
-		this.description = description;
+	public void setDescription(final String pDescription) {
+		this.description = pDescription;
 	}
 
 	/**
@@ -107,10 +91,10 @@ public class PizzaDTO {
 	}
 
 	/**
-	 * @param image the image to set
+	 * @param pImage the image to set
 	 */
-	public void setImage(final String image) {
-		this.image = image;
+	public void setImage(final String pImage) {
+		this.image = pImage;
 	}
 
 	/**
@@ -121,10 +105,10 @@ public class PizzaDTO {
 	}
 
 	/**
-	 * @param price the price to set
+	 * @param pPrice the price to set
 	 */
-	public void setPrice(final Double price) {
-		this.price = price;
+	public void setPrice(final Double pPrice) {
+		this.price = pPrice;
 	}
 
 }

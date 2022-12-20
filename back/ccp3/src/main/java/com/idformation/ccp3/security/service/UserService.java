@@ -1,5 +1,5 @@
 /**
- * 
+ *  User service
  */
 package com.idformation.ccp3.security.service;
 
@@ -36,8 +36,8 @@ public class UserService implements IUserService {
 	 * return phonenumber of User.
 	 */
 	@Override
-	public Optional<User> findByPhonenumber(final String phonenumber) {
-		return userRepo.findByPhonenumber(phonenumber);
+	public Optional<User> findByUsername(final String username) {
+		return userRepo.findByPhonenumber(username);
 	}
 
 }

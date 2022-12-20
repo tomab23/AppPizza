@@ -2,8 +2,14 @@ package com.idformation.ccp3.security.controller.dto;
 
 public class JwtResponse {
 
+	/**
+	 * the token of JwtResponse.
+	 */
 	private String token;
 
+	/**
+	 * the tokenHeader of JwtResponse.
+	 */
 	private String tokenHeader;
 
 	/**
@@ -14,12 +20,13 @@ public class JwtResponse {
 	}
 
 	/**
-	 * @param token
+	 * @param pToken is token of JwtReponse
+	 * @param pTokenHeader is tokenHeader of JwtReponse
 	 */
-	public JwtResponse(String token, String tokenHeader) {
+	public JwtResponse(final String pToken, final String pTokenHeader) {
 		super();
-		this.token = token;
-		this.tokenHeader = tokenHeader;
+		this.token = pToken;
+		this.tokenHeader = pTokenHeader;
 	}
 
 	/**
@@ -30,10 +37,10 @@ public class JwtResponse {
 	}
 
 	/**
-	 * @param token the token to set
+	 * @param pToken the token to set
 	 */
-	public void setToken(String token) {
-		this.token = token;
+	public void setToken(final String pToken) {
+		this.token = pToken;
 	}
 
 	/**
@@ -44,10 +51,10 @@ public class JwtResponse {
 	}
 
 	/**
-	 * @param tokenHeader the tokenHeader to set
+	 * @param pTokenHeader the tokenHeader to set
 	 */
-	public void setTokenHeader(String tokenHeader) {
-		this.tokenHeader = tokenHeader;
+	public void setTokenHeader(final String pTokenHeader) {
+		this.tokenHeader = pTokenHeader;
 	}
 
 }

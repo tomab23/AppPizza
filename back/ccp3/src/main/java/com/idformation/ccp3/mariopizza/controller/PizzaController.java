@@ -1,5 +1,5 @@
 /**
- * 
+ *  Controller principal
  */
 package com.idformation.ccp3.mariopizza.controller;
 
@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.idformation.ccp3.mariopizza.dto.OrderDTO;
 import com.idformation.ccp3.mariopizza.dto.OrderLineDTO;
 import com.idformation.ccp3.mariopizza.dto.PizzaDTO;
+import com.idformation.ccp3.mariopizza.helpers.MagicNumber;
 import com.idformation.ccp3.mariopizza.mapper.OrderLineMapper;
 import com.idformation.ccp3.mariopizza.mapper.OrderMapper;
 import com.idformation.ccp3.mariopizza.mapper.PizzaMapper;
@@ -29,7 +30,7 @@ import com.idformation.ccp3.mariopizza.service.impl.OrderLineService;
 import com.idformation.ccp3.security.jwt.JwtAuthenticationFilter;
 import com.idformation.ccp3.security.jwt.JwtProvider;
 import com.idformation.ccp3.security.models.User;
-import com.idformation.ccp3.security.service.UserService;
+import com.idformation.ccp3.security.service.IUserService;
 
 /**
  * @author Stagiaire
@@ -38,7 +39,7 @@ import com.idformation.ccp3.security.service.UserService;
 
 @RestController
 @RequestMapping("/pizza")
-@CrossOrigin(origins = "http://localhost:19006", maxAge = 3600)
+@CrossOrigin(origins = "http://localhost:19006", maxAge = MagicNumber.ORIGIN)
 public class PizzaController {
 
 	/**
@@ -72,7 +73,7 @@ public class PizzaController {
 	 * call User service.
 	 */
 	@Autowired
-	private UserService useService;
+	private IUserService userService;
 
 	/**
 	 * call OrderLine service.
@@ -99,16 +100,18 @@ public class PizzaController {
 	@PostMapping("/userOrder")
 	void saveOrder(@RequestBody final OrderDTO orders, final HttpServletRequest request) {
 
-		// 1: On identifie le user par le jwt
-		User user = useService.findByPhonenumber(
-				jwtProvider.getUserUsernameFromJWT(jwtAuthenticationFilter.getJwtFromRequest(request))).get();
+		// 1: identify the User with Jwt
+		User user = userService.findByUsername(
+				jwtProvider.getUserUsernameFromJWT(
+						jwtAuthenticationFilter.getJwtFromRequest(request))).get();
 
-		// 2: creation order pour le requestBody
+		// 2: creation order for the requestBody
 		Order order = OrderMapper.toEntity(orders);
 		order.setUser(user);
 
-//		 3: sauvegarder order
+//		 3: save order
 		orderService.saveOrder(order);
+
 	}
 
 	/**

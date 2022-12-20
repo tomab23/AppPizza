@@ -1,12 +1,10 @@
 /**
- * 
+ *  UserDTO dto about User
  */
 package com.idformation.ccp3.security.dto;
 
 import java.util.HashSet;
 import java.util.Set;
-
-import com.idformation.ccp3.security.models.Role;
 
 /**
  * @author Stagiaire
@@ -15,63 +13,45 @@ import com.idformation.ccp3.security.models.Role;
 public class UserDTO {
 
 	/**
-	 * the id.
+	 * the id of UserDTO.
 	 */
 	private Long id;
 
 	/**
-	 * the phonenumber.
+	 * the phonenumber of UserDTO.
 	 */
 	private String phonenumber;
 
 	/**
-	 * the password.
+	 * the password of UserDTO.
 	 */
 	private String password;
 
 	/**
-	 * the firstname.
+	 * the firstname of UserDTO.
 	 */
 	private String firstname;
 
 	/**
-	 * the lastname.
+	 * the lastname of UserDTO.
 	 */
 	private String lastname;
 
 	/**
-	 * the address.
+	 * the address of UserDTO.
 	 */
 	private String address;
 
 	/**
 	 * the role of User.
 	 */
-	private Set<Role> roles = new HashSet<>();
+	private Set<RoleDTO> roles = new HashSet<>();
 
 	/**
 	 * UserDTO constructor.
 	 */
 	public UserDTO() {
 		super();
-	}
-
-	/**
-	 * @param id          the id
-	 * @param phonenumber the phonenumber
-	 * @param password    the password
-	 * @param firstname   the firstname
-	 * @param lastname    the lastname
-	 * @param address     the address
-	 */
-	public UserDTO(long id, String phonenumber, String password, String firstname, String lastname, String address) {
-		super();
-		this.id = id;
-		this.phonenumber = phonenumber;
-		this.password = password;
-		this.firstname = firstname;
-		this.lastname = lastname;
-		this.address = address;
 	}
 
 	/**
@@ -82,10 +62,10 @@ public class UserDTO {
 	}
 
 	/**
-	 * @param id the id to set
+	 * @param pId the id to set
 	 */
-	public void setId(final Long id) {
-		this.id = id;
+	public void setId(final Long pId) {
+		this.id = pId;
 	}
 
 	/**
@@ -96,10 +76,10 @@ public class UserDTO {
 	}
 
 	/**
-	 * @param phonenumber the phonenumber to set
+	 * @param pPhonenumber the phonenumber to set
 	 */
-	public void setPhonenumber(final String phonenumber) {
-		this.phonenumber = phonenumber;
+	public void setPhonenumber(final String pPhonenumber) {
+		this.phonenumber = pPhonenumber;
 	}
 
 	/**
@@ -110,10 +90,10 @@ public class UserDTO {
 	}
 
 	/**
-	 * @param password the password to set
+	 * @param pPassword the password to set
 	 */
-	public void setPassword(String password) {
-		this.password = password;
+	public void setPassword(final String pPassword) {
+		this.password = pPassword;
 	}
 
 	/**
@@ -124,10 +104,10 @@ public class UserDTO {
 	}
 
 	/**
-	 * @param firstname the firstname to set
+	 * @param pFirstname the firstname to set
 	 */
-	public void setFirstname(String firstname) {
-		this.firstname = firstname;
+	public void setFirstname(final String pFirstname) {
+		this.firstname = pFirstname;
 	}
 
 	/**
@@ -138,10 +118,10 @@ public class UserDTO {
 	}
 
 	/**
-	 * @param lastname the lastname to set
+	 * @param pLastname the lastname to set
 	 */
-	public void setLastname(final String lastname) {
-		this.lastname = lastname;
+	public void setLastname(final String pLastname) {
+		this.lastname = pLastname;
 	}
 
 	/**
@@ -152,24 +132,23 @@ public class UserDTO {
 	}
 
 	/**
-	 * @param address the address to set
+	 * @param pAddress the address to set
 	 */
-	public void setAddress(final String address) {
-		this.address = address;
+	public void setAddress(final String pAddress) {
+		this.address = pAddress;
 	}
 
 	/**
 	 * @return the roles
 	 */
-	public Set<Role> getRoles() {
+	public Set<RoleDTO> getRoles() {
 		return roles;
 	}
 
 	/**
-	 * @param roles the roles to set
+	 * @param pRoles the roles to set
 	 */
-	public void setRoles(final Set<Role> roles) {
-		this.roles = roles;
+	public void setRoles(final Set<RoleDTO> pRoles) {
+		this.roles = pRoles;
 	}
-
 }

@@ -1,12 +1,9 @@
-/**
- * 
- */
 package com.idformation.ccp3.mariopizza.dto;
 
 import java.util.Date;
 import java.util.List;
 
-import com.idformation.ccp3.security.dto.UserDTO;
+import com.idformation.ccp3.security.models.User;
 
 /**
  * @author Stagiaire
@@ -14,50 +11,36 @@ import com.idformation.ccp3.security.dto.UserDTO;
  */
 public class OrderDTO {
 	/**
-	 * the id.
+	 * the id of OrderDTO.
 	 */
 
 	private Long id;
 	/**
-	 * the date.
+	 * the date of OrderDTO.
 	 */
 
 	private Date date;
 
 	/**
-	 * the total.
+	 * the total of OrderDTO.
 	 */
 	private Double totalAmount;
 
 	/**
-	 * the User.
+	 * the User of OrderDTO.
 	 */
-	private UserDTO user;
+	private User user;
 
 	/**
-	 * List of OrderLine.
+	 * List of OrderLineDTO of OrderDTO.
 	 */
-	private List<Long> lines;
+	private List<OrderLineDTO> lines;
 
 	/**
 	 * OrderDTO constructor.
 	 */
 	public OrderDTO() {
 		super();
-	}
-
-	/**
-	 * @param id    the id
-	 * @param date  the date
-	 * @param total the total
-	 * @param user  the user
-	 */
-	public OrderDTO(final long id, final Date date, final double total, final UserDTO user) {
-		super();
-		this.id = id;
-		this.date = date;
-		this.totalAmount = total;
-		this.user = user;
 	}
 
 	/**
@@ -68,10 +51,10 @@ public class OrderDTO {
 	}
 
 	/**
-	 * @param id the id to set
+	 * @param pId the id to set
 	 */
-	public void setId(final Long id) {
-		this.id = id;
+	public void setId(final Long pId) {
+		this.id = pId;
 	}
 
 	/**
@@ -82,10 +65,10 @@ public class OrderDTO {
 	}
 
 	/**
-	 * @param date the date to set
+	 * @param pDate the date to set
 	 */
-	public void setDate(final Date date) {
-		this.date = date;
+	public void setDate(final Date pDate) {
+		this.date = pDate;
 	}
 
 	/**
@@ -96,39 +79,37 @@ public class OrderDTO {
 	}
 
 	/**
-	 * @param totalAmount the totalAmount to set
+	 * @param pTotalAmount the totalAmount to set
 	 */
-	public void setTotalAmount(final Double totalAmount) {
-		this.totalAmount = totalAmount;
+	public void setTotalAmount(final Double pTotalAmount) {
+		this.totalAmount = pTotalAmount;
 	}
 
 	/**
 	 * @return the user
 	 */
-	public UserDTO getUser() {
+	public User getUser() {
 		return user;
 	}
 
 	/**
 	 * @param userDTO the user to set
 	 */
-	public void setUser(final UserDTO userDTO) {
+	public void setUser(final User userDTO) {
 		this.user = userDTO;
 	}
 
 	/**
 	 * @return the lines
 	 */
-	public List<Long> getLines() {
+	public List<OrderLineDTO> getLines() {
 		return lines;
 	}
 
 	/**
-	 * @param lines the lines to set
+	 * @param pLines the lines to set
 	 */
-	public void setLines(final List<Long> lines) {
-		this.lines = lines;
+	public void setLines(final List<OrderLineDTO> pLines) {
+		this.lines = pLines;
 	}
-
-
 }

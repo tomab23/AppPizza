@@ -1,5 +1,4 @@
 import OrderLine from "./OrderLine";
-import User from "./User";
 
 export default class Order {
     totalAmount: number;

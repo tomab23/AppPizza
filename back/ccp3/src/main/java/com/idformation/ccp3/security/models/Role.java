@@ -9,6 +9,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import com.idformation.ccp3.mariopizza.helpers.MagicNumber;
+
 @Entity
 @Table(name = "roles")
 public class Role {
@@ -24,7 +26,7 @@ public class Role {
 	 * the name.
 	 */
 	@Enumerated(EnumType.STRING)
-	@Column(length = 20)
+	@Column(length = MagicNumber.SIZESMALL)
 	private RoleName name;
 
 	/**
@@ -34,10 +36,10 @@ public class Role {
 	}
 
 	/**
-	 * @param name
+	 * @param pName
 	 */
-	public Role(final RoleName name) {
-		this.name = name;
+	public Role(final RoleName pName) {
+		this.name = pName;
 	}
 
 	/**
@@ -55,17 +57,17 @@ public class Role {
 	}
 
 	/**
-	 * @param id
+	 * @param pId
 	 */
-	public void setId(final Integer id) {
-		this.id = id;
+	public void setId(final Integer pId) {
+		this.id = pId;
 	}
 
 	/**
-	 * @param name
+	 * @param pName
 	 */
-	public void setName(final RoleName name) {
-		this.name = name;
+	public void setName(final RoleName pName) {
+		this.name = pName;
 	}
 
 }

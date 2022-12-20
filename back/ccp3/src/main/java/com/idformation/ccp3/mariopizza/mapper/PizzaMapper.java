@@ -1,6 +1,3 @@
-/**
- * 
- */
 package com.idformation.ccp3.mariopizza.mapper;
 
 import java.util.ArrayList;
@@ -16,7 +13,7 @@ import com.idformation.ccp3.mariopizza.models.Pizza;
 public class PizzaMapper {
 
 	/**
-	 * Transform Entity to DTO.
+	 * Transform Pizza Entity to PizzaDTO.
 	 * @param piz Pizza entity
 	 * @return dto Pizza to PizzaDTO
 	 */
@@ -36,9 +33,9 @@ public class PizzaMapper {
 	}
 
 	/**
-	 * Transform DTO to Entity.
+	 * Transform PizzaDTO to Pizza Entity.
 	 * @param dto PizzaDTO
-	 * @return piz PizzaDTO to Pizza entity
+	 * @return piz Pizza entity
 	 */
 	public static Pizza toEntity(final PizzaDTO dto) {
 		Pizza piz = null;
@@ -56,9 +53,9 @@ public class PizzaMapper {
 	}
 
 	/**
-	 * Transform List of Entity to List of DTO.
+	 * Transform List of Pizza Entity to List of PizzaDTO.
 	 * @param pizs List of Pizza
-	 * @return dtos List of Pizza to List of PizzaDTO
+	 * @return dtos List of PizzaDTO
 	 */
 	public static List<PizzaDTO> listToListDto(final List<Pizza> pizs) {
 		List<PizzaDTO> dtos = null;

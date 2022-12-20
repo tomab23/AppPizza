@@ -19,23 +19,38 @@ import org.springframework.web.filter.OncePerRequestFilter;
 
 public class JwtAuthenticationFilter extends OncePerRequestFilter {
 
+	/**
+	 * tokenHeader of JwtAuthenticationFilter.
+	 */
 	@Value("${app.jwtTokenHeader}")
-	public String tokenHeader;
+	private String tokenHeader;
 
+	/**
+	 * tokenProvider of JwtAuthenticationFilter.
+	 */
 	@Autowired
-	public JwtProvider tokenProvider;
+	private JwtProvider tokenProvider;
+
+	/**
+	 *  call UseeDetailService.
+	 */
 	@Autowired
 	private UserDetailsService userDetailsService;
 
+/**
+ * method for filter internal.
+ */
 	@Override
-	protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain)
+	protected void doFilterInternal(final HttpServletRequest request,
+			final HttpServletResponse response, final FilterChain filterChain)
 			throws ServletException, IOException {
 		try {
 			String jwt = getJwtFromRequest(request);
 			if (StringUtils.hasText(jwt) && tokenProvider.validateToken(jwt)) {
 				String username = tokenProvider.getUserUsernameFromJWT(jwt);
 				UserDetails userDetails = userDetailsService.loadUserByUsername(username);
-				UsernamePasswordAuthenticationToken authentication = new UsernamePasswordAuthenticationToken(
+				UsernamePasswordAuthenticationToken authentication =
+						new UsernamePasswordAuthenticationToken(
 						userDetails, null, userDetails.getAuthorities());
 				authentication.setDetails(new WebAuthenticationDetailsSource().buildDetails(request));
 				SecurityContextHolder.getContext().setAuthentication(authentication);
@@ -46,7 +61,11 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
 		filterChain.doFilter(request, response);
 	}
 
-	public String getJwtFromRequest(HttpServletRequest request) {
+	/**
+	 * @param request
+	 * @return null
+	 */
+	public String getJwtFromRequest(final HttpServletRequest request) {
 		String bearerToken = request.getHeader("Authorization");
 		if (StringUtils.hasText(bearerToken) && bearerToken.startsWith(tokenHeader)) {
 			return bearerToken.substring(tokenHeader.length() + 1, bearerToken.length());

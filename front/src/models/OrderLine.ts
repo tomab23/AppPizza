@@ -1,5 +1,3 @@
-import Order from "./Order";
-import Pizza from "./Pizza";
 
 export default class OrderLine {
     id: number

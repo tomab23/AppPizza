@@ -19,6 +19,7 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 
 import com.idformation.ccp3.security.jwt.JwtAuthenticationFilter;
 
+@SuppressWarnings("deprecation")
 @Configuration
 @EnableWebSecurity
 @EnableGlobalMethodSecurity(prePostEnabled = true)
@@ -43,7 +44,7 @@ public class SecurityAdapter extends WebSecurityConfigurerAdapter {
 	 * configuration authentication.
 	 */
 	@Override
-	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
+	protected void configure(final AuthenticationManagerBuilder auth) throws Exception {
 		auth.userDetailsService(userDetailsService).passwordEncoder(passwordEncoder());
 	}
 
@@ -62,7 +63,8 @@ public class SecurityAdapter extends WebSecurityConfigurerAdapter {
 		.anyRequest().authenticated()
 		.and()
 		.exceptionHandling()
-		.authenticationEntryPoint((req, res, ex) -> res.sendError(HttpServletResponse.SC_UNAUTHORIZED, "UNAUTHORIZED : " + ex.getMessage()))
+		.authenticationEntryPoint((req, res, ex) -> res.sendError(
+				HttpServletResponse.SC_UNAUTHORIZED, "UNAUTHORIZED : " + ex.getMessage()))
 		.and()
 		.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
 		.and()
