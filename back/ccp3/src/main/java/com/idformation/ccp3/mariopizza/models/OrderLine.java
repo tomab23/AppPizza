@@ -48,29 +48,6 @@ public class OrderLine {
 	}
 
 	/**
-	 * @param pId
-	 */
-	public OrderLine(final Long pId) {
-		super();
-		this.id = pId;
-	}
-
-
-	/**
-	 * @param pId is id of OrderLine
-	 * @param pQuantity is quantity of OrderLine
-	 * @param pPizza is a Pizza of OrderLine
-	 * @param pOrder is a Order of OrderLine
-	 */
-	public OrderLine(final long pId, final short pQuantity, final Pizza pPizza, final Order pOrder) {
-		super();
-		this.id = pId;
-		this.quantity = pQuantity;
-		this.pizza = pPizza;
-		this.order = pOrder;
-	}
-
-	/**
 	 * @return the id
 	 */
 	public Long getId() {

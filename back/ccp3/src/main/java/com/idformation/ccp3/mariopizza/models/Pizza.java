@@ -44,10 +44,18 @@ public class Pizza {
 
 
 	/**
-	 *
+	 * Pizza constructor.
 	 */
 	public Pizza() {
 		super();
+	}
+
+	/**
+	 * @param pizza
+	 */
+	public Pizza(final Long pizza) {
+		super();
+		this.id = pizza;
 	}
 
 	/**

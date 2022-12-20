@@ -1,8 +1,5 @@
 package com.idformation.ccp3.mariopizza.dto;
 
-import com.idformation.ccp3.mariopizza.models.Order;
-import com.idformation.ccp3.mariopizza.models.Pizza;
-
 /**
  * @author Stagiaire
  *
@@ -10,24 +7,24 @@ import com.idformation.ccp3.mariopizza.models.Pizza;
 public class OrderLineDTO {
 
 	/**
-	 * the id of OrderLineDTO.
+	 * the Pizza in the OrderLine.
 	 */
-	private Long id;
+	private Long pizza;
 
 	/**
-	 * the quantity of OrderLineDTO.
+	 * the quantity of Pizza in the OrderLine.
 	 */
 	private Short quantity;
 
-	/**
-	 * the Order of OrderLineDTO.
-	 */
-	private Order order;
-
-	/**
-	 * the Pizza of OrderLineDTO.
-	 */
-	private Pizza pizza;
+//	/**
+//	 * the Order of OrderLineDTO.
+//	 */
+//	private Order order;
+//
+//	/**
+//	 * the Pizza of OrderLineDTO.
+//	 */
+//	private Pizza pizza;
 
 	/**
 	 * OrderLineDTO Constructor.
@@ -36,19 +33,19 @@ public class OrderLineDTO {
 		super();
 	}
 
-	/**
-	 * @return the id
-	 */
-	public Long getId() {
-		return id;
-	}
-
-	/**
-	 * @param pId the id to set
-	 */
-	public void setId(final Long pId) {
-		this.id = pId;
-	}
+//	/**
+//	 * @return the id
+//	 */
+//	public Long getId() {
+//		return id;
+//	}
+//
+//	/**
+//	 * @param pId the id to set
+//	 */
+//	public void setId(final Long pId) {
+//		this.id = pId;
+//	}
 
 	/**
 	 * @return the quantity
@@ -64,31 +61,31 @@ public class OrderLineDTO {
 		this.quantity = pQuantity;
 	}
 
-	/**
-	 * @return the order
-	 */
-	public Order getOrder() {
-		return order;
-	}
-
-	/**
-	 * @param pOrder the order to set
-	 */
-	public void setOrder(final Order pOrder) {
-		this.order = pOrder;
-	}
+//	/**
+//	 * @return the order
+//	 */
+//	public Order getOrder() {
+//		return order;
+//	}
+//
+//	/**
+//	 * @param pOrder the order to set
+//	 */
+//	public void setOrder(final Order pOrder) {
+//		this.order = pOrder;
+//	}
 
 	/**
 	 * @return the pizza
 	 */
-	public Pizza getPizza() {
+	public Long getPizza() {
 		return pizza;
 	}
 
 	/**
 	 * @param pPizza the pizza to set
 	 */
-	public void setPizza(final Pizza pPizza) {
+	public void setPizza(final Long pPizza) {
 		this.pizza = pPizza;
 	}
 }

@@ -3,6 +3,7 @@
  */
 package com.idformation.ccp3.mariopizza.controller;
 
+import java.util.Date;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -16,17 +17,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.idformation.ccp3.mariopizza.dto.OrderDTO;
-import com.idformation.ccp3.mariopizza.dto.OrderLineDTO;
 import com.idformation.ccp3.mariopizza.dto.PizzaDTO;
 import com.idformation.ccp3.mariopizza.helpers.MagicNumber;
-import com.idformation.ccp3.mariopizza.mapper.OrderLineMapper;
 import com.idformation.ccp3.mariopizza.mapper.OrderMapper;
 import com.idformation.ccp3.mariopizza.mapper.PizzaMapper;
 import com.idformation.ccp3.mariopizza.models.Order;
-import com.idformation.ccp3.mariopizza.models.OrderLine;
 import com.idformation.ccp3.mariopizza.service.IOrderService;
 import com.idformation.ccp3.mariopizza.service.IPizzaService;
-import com.idformation.ccp3.mariopizza.service.impl.OrderLineService;
 import com.idformation.ccp3.security.jwt.JwtAuthenticationFilter;
 import com.idformation.ccp3.security.jwt.JwtProvider;
 import com.idformation.ccp3.security.models.User;
@@ -75,11 +72,6 @@ public class PizzaController {
 	@Autowired
 	private IUserService userService;
 
-	/**
-	 * call OrderLine service.
-	 */
-	@Autowired
-	private OrderLineService lineService;
 
 
 
@@ -108,30 +100,9 @@ public class PizzaController {
 		// 2: creation order for the requestBody
 		Order order = OrderMapper.toEntity(orders);
 		order.setUser(user);
+		order.setDate(new Date());
 
 //		 3: save order
 		orderService.saveOrder(order);
-
 	}
-
-	/**
-	 * @author Stagiaire
-	 * @param dto OrderLineDTO
-	 * @return entity Orderline
-	 */
-	@PostMapping("/add/line")
-	public OrderLine addLines(@RequestBody final OrderLineDTO dto) {
-		return lineService.saveLine(OrderLineMapper.toEntity(dto));
-	}
-
-	/**
-	 * @author Stagiaire
-	 * @param dto OrderDTO
-	 * @return entity Order entity
-	 */
-	@PostMapping("/add/order")
-	public Order addOrder(@RequestBody final OrderDTO dto) {
-		return orderService.saveOrder(OrderMapper.toEntity(dto));
-	}
-
 }
