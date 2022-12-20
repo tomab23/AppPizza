@@ -23,19 +23,17 @@ const Footer = (props: any) => {
     // Confirme la commande (et va envoyer la commande dans la base de données)
     const ConfirmButton = () => {
       
-      if (total === 0) {
-        
-        return;
-      } else {
-        let test = new Order(total, order)
+        if (total === 0) {
+          
+          return;
+        } else {
+          let test = new Order(total, order)
+          console.log('commande : ',test);
+          
+          OrderService.userOrder(test);
 
-        console.log('commande : ',test);
-        
-        OrderService.userOrder(test);
-
-        navigation.navigate('Final')  
-      }
-      
+          navigation.navigate('Final')  
+        }      
       }
 
       // Calcul le prix total des pizzas commander

@@ -12,32 +12,32 @@ import javax.persistence.Table;
 public class Pizza {
 
 	/**
-	 * the id of Pizza.
+	 * the id of the Pizza.
 	 */
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 
 	/**
-	 * the name of Pizza.
+	 * the name of the Pizza.
 	 */
 	@Column
 	private String name;
 
 	/**
-	 * the description of Pizza.
+	 * the description of the Pizza.
 	 */
 	@Column
 	private String description;
 
 	/**
-	 * the image of Pizza.
+	 * the image of the Pizza.
 	 */
 	@Column
 	private String image;
 
 	/**
-	 * the price of Pizza.
+	 * the price of the Pizza.
 	 */
 	@Column
 	private Double price;
@@ -51,7 +51,7 @@ public class Pizza {
 	}
 
 	/**
-	 * @param id2
+	 * @param id2 is the id of the Pizza
 	 */
 	public Pizza(final Long id2) {
 		super();
@@ -59,11 +59,11 @@ public class Pizza {
 	}
 
 	/**
-	 * @param pId
-	 * @param pName
-	 * @param pDescription
-	 * @param pImage
-	 * @param pPrice
+	 * @param pId is the id of the Pizza
+	 * @param pName is the name of the Pizza
+	 * @param pDescription is the description of the Pizza
+	 * @param pImage is the image of the Pizza
+	 * @param pPrice is the price of the Pizza
 	 */
 	public Pizza(final Long pId, final String pName, final String pDescription,
 			final String pImage, final Double pPrice) {

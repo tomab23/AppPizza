@@ -10,27 +10,27 @@ package com.idformation.ccp3.mariopizza.dto;
 public class PizzaDTO {
 
 	/**
-	 * the id of PizzaDTO.
+	 * the id of the PizzaDTO.
 	 */
 	private Long id;
 
 	/**
-	 * the name of PizzaDTO.
+	 * the name of the PizzaDTO.
 	 */
 	private String name;
 
 	/**
-	 * the description of PizzaDTO.
+	 * the description of the PizzaDTO.
 	 */
 	private String description;
 
 	/**
-	 * the image of PizzaDTO.
+	 * the image of the PizzaDTO.
 	 */
 	private String image;
 
 	/**
-	 * the price of PizzaDTO.
+	 * the price of the PizzaDTO.
 	 */
 	private Double price;
 

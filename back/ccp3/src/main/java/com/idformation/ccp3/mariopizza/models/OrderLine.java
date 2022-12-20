@@ -14,28 +14,28 @@ import javax.persistence.Table;
 public class OrderLine {
 
 	/**
-	 * the id of OrderLine.
+	 * the id of the OrderLine.
 	 */
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 
 	/**
-	 * the Order of OrderLine.
+	 * the Order of the OrderLine.
 	 */
 	@ManyToOne
 	@JoinColumn(name="ord_id", referencedColumnName = "id", nullable = false)
 	private Order order;
 
 	/**
-	 * the Pizza of OrderLine.
+	 * the Pizza of the OrderLine.
 	 */
 	@ManyToOne
 	@JoinColumn(name="piz_id", referencedColumnName = "id", nullable = false)
 	private Pizza pizza;
 
 	/**
-	 * the quantity of OrderLine.
+	 * the quantity of the OrderLine.
 	 */
 	@Column(name="quantity")
 	private Short quantity;

@@ -7,15 +7,18 @@ import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import com.idformation.ccp3.mariopizza.dto.OrderLineDTO;
+import com.idformation.ccp3.mariopizza.helpers.MagicNumber;
 import com.idformation.ccp3.mariopizza.mapper.OrderLineMapper;
 import com.idformation.ccp3.mariopizza.models.Order;
 import com.idformation.ccp3.mariopizza.models.OrderLine;
+import com.idformation.ccp3.security.models.User;
 
 /**
  * @author Stagiaire
@@ -57,7 +60,7 @@ public class OrderLineTest {
 
 		// then
 		assertThat(dto.getQuantity()).isEqualTo(line.getQuantity());
-//		assertThat(dto.getPizza()).isEqualTo(line.getPizza());
+		assertThat(dto.getPizza()).isNotNull();
 
 	}
 
@@ -70,8 +73,10 @@ public class OrderLineTest {
 		// given
 		OrderLineDTO dto = null;
 
+		Order order = new Order((long) 1);
+
 		// when
-		OrderLine line = OrderLineMapper.toEntity(dto, new Order());
+		OrderLine line = OrderLineMapper.toEntity(dto, order);
 
 		// then
 		assertEquals(line, dto);
@@ -84,13 +89,19 @@ public class OrderLineTest {
 	public void listOrderLineDtoToListOrderLineEntity() {
 		// given
 		List<OrderLineDTO> dtos = new ArrayList<>();
-		Order order = new Order();
+		for (long i = 0; i < 2; i++) {
+			dtos.add(new OrderLineDTO((long) 1, (short) 2 ));
+		}
+
+		List<OrderLine> line = new ArrayList<>();
+
+		Order order = new Order((long) 1, new Date(), (double) MagicNumber.SIZESMALL, line, new User());
 
 		// when
 		List<OrderLine> lines = OrderLineMapper.listDtoToListEntity(dtos, order);
 
 		// then
-		assertThat(dtos).isNotNull().hasSameSizeAs(lines);
+		assertThat(lines).isNotNull().hasSameSizeAs(dtos);
 
 	}
 

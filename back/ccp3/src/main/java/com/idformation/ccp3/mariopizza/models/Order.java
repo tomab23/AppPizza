@@ -24,27 +24,27 @@ import com.idformation.ccp3.security.models.User;
 public class Order {
 
 	/**
-	 * the id.
+	 * the id of the Order.
 	 */
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 
 	/**
-	 * the date.
+	 * the date the Order.
 	 */
 	@Column(name = "`date`")
 	@Temporal(TemporalType.DATE)
 	private Date date;
 
 	/**
-	 * the total.
+	 * the total of the Order.
 	 */
 	@Column(name = "total_amount")
 	private Double totalAmount = 0.;
 
 	/**
-	 * the User.
+	 * the User of the Order.
 	 */
 	@ManyToOne
 	@JoinColumn(name = "usr_id", referencedColumnName = "id")
@@ -64,11 +64,11 @@ public class Order {
 	}
 
 	/**
-	 * @param pId   the id of Order
-	 * @param pDate  the date of Order
-	 * @param total the total of Order
-	 * @param pLines the lines of Order
-	 * @param pUser  the User of Order
+	 * @param pId   the id of the Order
+	 * @param pDate  the date of the Order
+	 * @param total the total of the Order
+	 * @param pLines the lines of the Order
+	 * @param pUser  the User of the Order
 	 */
 	public Order(final long pId, final Date pDate, final double total,
 			final List<OrderLine> pLines, final User pUser) {

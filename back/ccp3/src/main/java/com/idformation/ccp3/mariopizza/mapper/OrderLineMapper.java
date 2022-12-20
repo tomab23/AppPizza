@@ -14,27 +14,6 @@ import com.idformation.ccp3.mariopizza.models.Pizza;
  */
 public class OrderLineMapper {
 
-///**
-//	 * Transform OrderLine entity to OrderLineDTO.
-//	 * @param orderLine OrderLine entity.
-//	 * @return dto OrderLine to OrderLineDTO
-//	 */
-//	public static OrderLineDTO toDto(final OrderLine orderLine) {
-//		OrderLineDTO dto = null;
-//
-//
-//
-//		if (orderLine != null) {
-//			dto = new OrderLineDTO();
-//			dto.setId(orderLine.getId());
-//			dto.setQuantity(orderLine.getQuantity());
-//			dto.setPizza(orderLine.getPizza());
-//			dto.setOrder(orderLine.getOrder());
-//
-//	}
-//		return dto;
-//	}
-
 	/**
 	 * Transform OrderLineDTO to OrderLine entity.
 	 * @param dto OrderLineDTO.
@@ -46,35 +25,16 @@ public class OrderLineMapper {
 
 		if (dto != null) {
 			orderLine = new OrderLine();
-			orderLine.setOrder(order);
 			orderLine.setPizza(new Pizza(dto.getPizza()));
 			orderLine.setQuantity(dto.getQuantity());
+			orderLine.setOrder(order);
 
 	}
 		return orderLine;
 	}
 
-//	/**
-//	 * Transform a list of OrderLine entity to list of OrderLineDTO.
-//	 * @param lines List of OrderLine entity
-//	 * @return dtos list of OrderLineDTO
-//	 */
-//	public static List<OrderLineDTO> listToListDto(final List<OrderLine> lines) {
-//		List<OrderLineDTO> dtos = null;
-//
-//		if (lines != null && !lines.isEmpty()) {
-//			dtos = new ArrayList<>();
-//
-//			for (OrderLine ol : lines) {
-//				dtos.add(toDto(ol));
-//			}
-//		}
-//
-//		return dtos;
-//	}
-
 	/**
-	 * Transform a list of OrderLineDTO to list of OrderLine entity.
+	 * Transform a list of OrderLineDTO to a list of OrderLine entity.
 	 * @param dtos List of OrderLineDTO
 	 * @param order Order entity
 	 * @return lines List of OrderLine entity
@@ -89,7 +49,6 @@ public class OrderLineMapper {
 				lines.add(toEntity(ol, order));
 			}
 		}
-
 		return lines;
 	}
 

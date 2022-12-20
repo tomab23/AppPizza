@@ -31,13 +31,19 @@ export default class AuthenticationService {
   // Méthode qui test les Login de la base, pour pouvoir connecter l'utilsateur
     static async login(username: string, password: string): Promise<boolean> {
   
-      await this.getJwt(new LoginRequest(username, password))
-        .then(response => this.jwt = response.tokenHeader + ' ' + response.token);
+      await this.getJwt(new LoginRequest(username, password)).then((response) => {
+        console.log(response);
+        if (response !== undefined) {
+          this.jwt = response.tokenHeader + " " + response.token;
+        } else {
+          this.jwt = "";
+        }
+      });
   
         console.log(this.jwt);
   
   
-      const isAuthenticated = this.jwt != undefined;
+        const isAuthenticated = this.jwt != undefined && this.jwt.length > 0;
   
       return new Promise(resolve => {
         setTimeout(() => {

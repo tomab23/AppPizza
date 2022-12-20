@@ -12,12 +12,12 @@ import com.idformation.ccp3.security.models.RoleName;
 public class RoleDTO {
 
 	/**
-	 * the id of RoleDTO.
+	 * the id of the RoleDTO.
 	 */
 	private Integer id;
 
 	/**
-	 * the name of RoleDTO..
+	 * the name of the RoleDTO.
 	 */
 	private RoleName name;
 

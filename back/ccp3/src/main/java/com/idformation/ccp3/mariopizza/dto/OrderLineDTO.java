@@ -19,16 +19,6 @@ public class OrderLineDTO {
 	 */
 	private Short quantity;
 
-//	/**
-//	 * the Order of OrderLineDTO.
-//	 */
-//	private Order order;
-//
-//	/**
-//	 * the Pizza of OrderLineDTO.
-//	 */
-//	private Pizza pizza;
-
 	/**
 	 * OrderLineDTO Constructor.
 	 */
@@ -36,19 +26,15 @@ public class OrderLineDTO {
 		super();
 	}
 
-//	/**
-//	 * @return the id
-//	 */
-//	public Long getId() {
-//		return id;
-//	}
-//
-//	/**
-//	 * @param pId the id to set
-//	 */
-//	public void setId(final Long pId) {
-//		this.id = pId;
-//	}
+	/**
+	 * @param pId is pizza
+	 * @param pQuantity is quantity
+	 */
+	public OrderLineDTO(final long pId, final short pQuantity) {
+		super();
+		this.pizza = pId;
+		this.quantity = pQuantity;
+	}
 
 	/**
 	 * @return the quantity
@@ -63,20 +49,6 @@ public class OrderLineDTO {
 	public void setQuantity(final Short pQuantity) {
 		this.quantity = pQuantity;
 	}
-
-//	/**
-//	 * @return the order
-//	 */
-//	public Order getOrder() {
-//		return order;
-//	}
-//
-//	/**
-//	 * @param pOrder the order to set
-//	 */
-//	public void setOrder(final Order pOrder) {
-//		this.order = pOrder;
-//	}
 
 	/**
 	 * @return the pizza

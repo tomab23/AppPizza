@@ -11,28 +11,28 @@ import com.idformation.ccp3.security.models.User;
  */
 public class OrderDTO {
 	/**
-	 * the id of OrderDTO.
+	 * the id of the OrderDTO.
 	 */
 
 	private Long id;
 	/**
-	 * the date of OrderDTO.
+	 * the date of the OrderDTO.
 	 */
 
 	private Date date;
 
 	/**
-	 * the total of OrderDTO.
+	 * the total of the OrderDTO.
 	 */
 	private Double totalAmount;
 
 	/**
-	 * the User of OrderDTO.
+	 * the User of the OrderDTO.
 	 */
 	private User user;
 
 	/**
-	 * List of OrderLineDTO of OrderDTO.
+	 * List of OrderLineDTO for the OrderDTO.
 	 */
 	private List<OrderLineDTO> lines;
 

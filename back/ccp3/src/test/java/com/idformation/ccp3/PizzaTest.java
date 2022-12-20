@@ -89,6 +89,38 @@ public class PizzaTest {
 	}
 
 	/**
+	 * test for PizzaDTO null to Pizza entity.
+	 */
+	@Test
+	public void pizzaDtoNullToEntity() {
+		// given
+		PizzaDTO dto = null;
+
+
+		// when
+		Pizza pizza = PizzaMapper.toEntity(dto);
+
+		// then
+		assertThat(pizza).isNull();
+	}
+
+	/**
+	 * test for Pizza entity null to PizzaDTO.
+	 */
+	@Test
+	public void pizzaNullToPizzaDto() {
+		// given
+		Pizza pizza = null;
+
+
+		// when
+		PizzaDTO dto = PizzaMapper.toDto(pizza);
+
+		// then
+		assertThat(dto).isNull();
+	}
+
+	/**
 	 * test for a List of Pizza entity null to List of PizzaDTO.
 	 */
 	@Test

@@ -13,32 +13,32 @@ import java.util.Set;
 public class UserDTO {
 
 	/**
-	 * the id of UserDTO.
+	 * the id of the UserDTO.
 	 */
 	private Long id;
 
 	/**
-	 * the phonenumber of UserDTO.
+	 * the phonenumber of the UserDTO.
 	 */
 	private String phonenumber;
 
 	/**
-	 * the password of UserDTO.
+	 * the password of the UserDTO.
 	 */
 	private String password;
 
 	/**
-	 * the firstname of UserDTO.
+	 * the firstname of the UserDTO.
 	 */
 	private String firstname;
 
 	/**
-	 * the lastname of UserDTO.
+	 * the lastname of the UserDTO.
 	 */
 	private String lastname;
 
 	/**
-	 * the address of UserDTO.
+	 * the address of the UserDTO.
 	 */
 	private String address;
 

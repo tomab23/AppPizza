@@ -6,9 +6,13 @@ package com.idformation.ccp3;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
+import java.util.HashSet;
+import java.util.Set;
+
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
+import com.idformation.ccp3.security.dto.RoleDTO;
 import com.idformation.ccp3.security.dto.UserDTO;
 import com.idformation.ccp3.security.mapper.UserMapper;
 import com.idformation.ccp3.security.models.User;
@@ -44,13 +48,15 @@ public class UserTest {
 		// given
 		UserDTO dto = new UserDTO();
 
+		Set<RoleDTO> role = new HashSet<>();
+
 		dto.setId((long) 1);
 		dto.setLastname("nom");
 		dto.setFirstname("prenom");
 		dto.setPassword("motdepasse");
 		dto.setPhonenumber("0606060606");
 		dto.setAddress("address");
-		dto.setRoles(null);
+		dto.setRoles(role);
 
 		// when
 		User user = UserMapper.toEntity(dto);
@@ -61,6 +67,7 @@ public class UserTest {
 		assertThat(dto.getFirstname()).isEqualTo(user.getFirstname());
 		assertThat(dto.getPhonenumber()).isEqualTo(user.getPhonenumber());
 		assertThat(dto.getAddress()).isEqualTo(user.getAddress());
+		assertThat(dto.getRoles()).isNotNull();
 	}
 
 	/**
