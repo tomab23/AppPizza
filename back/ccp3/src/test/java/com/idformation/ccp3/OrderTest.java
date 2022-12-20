@@ -77,7 +77,8 @@ public class OrderTest {
 		dto.setId((long) 1);
 		dto.setDate(new Date());
 		dto.setTotalAmount((double) MagicNumber.SIZESMALL);
-		dto.setUser(new User());
+		dto.setUser(new User((long) 1, "010203040506", "password", "firstname",
+				"lastname", "address"));
 		dto.setLines(null);
 
 
@@ -86,10 +87,7 @@ public class OrderTest {
 
 		// then
 		assertThat(dto.getId()).isEqualTo(order.getId());
-		assertThat(dto.getDate()).isEqualTo(order.getDate());
-		assertThat(dto.getTotalAmount()).isEqualTo(order.getTotalAmount());
-		assertThat(dto.getUser()).isEqualTo(order.getUser());
-//		assertThat(dto.getLines()).isEqualTo(order.getLines());
+		assertThat(dto.getLines()).isEqualTo(order.getLines());
 
 	}
 
@@ -112,7 +110,7 @@ public class OrderTest {
 	 * Test for Order null entity to a OrderDTO.
 	 */
 	@Test
-	void testTest() {
+	void orderNulltoOrderDTO() {
 		// given
 		OrderDTO dto = null;
 

@@ -34,38 +34,13 @@ public class UserTest {
 		assertEquals(m.getClass(), UserMapper.class);
 	}
 
-//	/**
-//	 * test for User entity to UserDTO.
-//	 */
-//	@Test
-//	public void userToDto() {
-//		// given
-//		User user = new User();
-//
-//		user.setId((long) 1);
-//		user.setLastname("nom");
-//		user.setFirstname("prenom");
-//		user.setPassword("motdepasse");
-//		user.setPhonenumber("0606060606");
-//		user.setAddress("address");
-//
-//		// when
-//		UserDTO dto = UserMapper.toDto(user);
-//
-//		// then
-//		assertThat(user.getId()).isEqualTo(dto.getId());
-//		assertThat(user.getLastname()).isEqualTo(dto.getLastname());
-//		assertThat(user.getFirstname()).isEqualTo(dto.getFirstname());
-//		assertThat(user.getPassword()).isEqualTo(dto.getPassword());
-//		assertThat(user.getPhonenumber()).isEqualTo(dto.getPhonenumber());
-//		assertThat(user.getAddress()).isEqualTo(dto.getAddress());
-//	}
 
 	/**
 	 * test for UserDTO to User entity.
 	 */
 	@Test
 	public void userToEntity() {
+
 		// given
 		UserDTO dto = new UserDTO();
 
@@ -75,6 +50,7 @@ public class UserTest {
 		dto.setPassword("motdepasse");
 		dto.setPhonenumber("0606060606");
 		dto.setAddress("address");
+		dto.setRoles(null);
 
 		// when
 		User user = UserMapper.toEntity(dto);
@@ -85,6 +61,21 @@ public class UserTest {
 		assertThat(dto.getFirstname()).isEqualTo(user.getFirstname());
 		assertThat(dto.getPhonenumber()).isEqualTo(user.getPhonenumber());
 		assertThat(dto.getAddress()).isEqualTo(user.getAddress());
+	}
+
+	/**
+	 * Test for UserDTO null to a User entity.
+	 */
+	@Test
+	void userDtoNullToUserEntity() {
+		// given
+		UserDTO dto = null;
+
+		// when
+		User user = UserMapper.toEntity(dto);
+
+		// then
+		assertEquals(user, dto);
 	}
 
 }

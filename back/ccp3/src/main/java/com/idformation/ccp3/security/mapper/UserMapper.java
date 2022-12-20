@@ -24,26 +24,6 @@ public class UserMapper {
 		return passwordEncoder.encode(password);
 	}
 
-//	/**
-//	 * Transform User entity to UserDTO.
-//	 * @param use User entity
-//	 * @return dto UserDTO
-//	 */
-//	public static UserDTO toDto(final User use) {
-//		UserDTO dto = null;
-//
-//		if (use != null) {
-//			dto = new UserDTO();
-//			dto.setId(use.getId());
-//			dto.setFirstname(use.getFirstname());
-//			dto.setLastname(use.getLastname());
-//			dto.setPassword(use.getPassword());
-//			dto.setPhonenumber(use.getPhonenumber());
-//			dto.setAddress(use.getAddress());
-//	}
-//		return dto;
-//	}
-
 	/**
 	 * Transform UserDTO to User entity.
 	 * @param dto UserDTO
