@@ -40,7 +40,7 @@ import com.idformation.ccp3.security.service.IUserService;
 public class PizzaController {
 
 	/**
-	 * @author Stagiaire call Interface Pizza service.
+	 * call Interface Pizza service.
 	 */
 	@Autowired
 	private IPizzaService pizzaService;
@@ -62,9 +62,6 @@ public class PizzaController {
 	 */
 	@Autowired
 	private JwtAuthenticationFilter jwtAuthenticationFilter;
-
-//	@Autowired
-//	private UserDetailsServiceImpl userService;
 
 	/**
 	 * call User service.
