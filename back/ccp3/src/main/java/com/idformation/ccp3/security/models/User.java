@@ -23,46 +23,46 @@ import com.idformation.ccp3.mariopizza.helpers.MagicNumber;
 public class User {
 
 	/**
-	 * the id.
+	 * the id for the User.
 	 */
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 
 	/**
-	 * the phonenumber.
+	 * the phonenumber for the User.
 	 */
 	@NonNull
 	@Size(max = MagicNumber.SIZESMALL)
-	private String phonenumber;
+	private String phonenumber = new String();
 
 	/**
-	 * the password.
+	 * the password for the User.
 	 */
 	@NonNull
 	@Size(max = MagicNumber.SIZELONG)
-	private String password;
+	private String password = new String();
 
 	/**
-	 * the firstname.
+	 * the firstname for the User.
 	 */
 	@NonNull
 	@Size(max = MagicNumber.SIZELONG)
-	private String firstname;
+	private String firstname = new String();
 
 	/**
-	 * the lastname.
+	 * the lastname for the User.
 	 */
 	@NonNull
 	@Size(max = MagicNumber.SIZELONG)
-	private String lastname;
+	private String lastname = new String();
 
 	/**
-	 * the address.
+	 * the address for the User.
 	 */
 	@NonNull
 	@Size(max = MagicNumber.SIZELONG)
-	private String address;
+	private String address = new String();
 
 	/**
 	 * the role of User.
@@ -75,7 +75,7 @@ public class User {
 
 
 	/**
-	 *
+	 * User constructor.
 	 */
 	public User() {
 		super();

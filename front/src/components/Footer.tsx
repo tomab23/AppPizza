@@ -18,7 +18,7 @@ const Footer = (props: any) => {
     // Constante qui contient le prix total
     const [total, setTotal] = useState(0)
 
-    console.log('total : '+ total.toFixed(1));
+    console.log('total : '+ total.toFixed(2));
 
     // Confirme la commande (et va envoyer la commande dans la base de données)
     const ConfirmButton = () => {
@@ -50,7 +50,7 @@ const Footer = (props: any) => {
 
   return (
     <View style={styles.footer}>
-        <Text style={styles.textPrix}> Total: {total.toFixed(1)}€ </Text>
+        <Text style={styles.textPrix}> Total: {total.toFixed(2)}€ </Text>
         <Pressable style={styles.valider} onPress={ConfirmButton}>
             <Text style={styles.textValider}>Valider</Text>
         </Pressable>

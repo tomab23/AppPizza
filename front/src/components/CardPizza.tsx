@@ -9,6 +9,8 @@ const CardPizza = (props: any) => {
     
     const { pizza , updateValue } = props
 
+    const prix = pizza.price;
+
     return (
         <>
         <View style={styles.card}>
@@ -28,10 +30,10 @@ const CardPizza = (props: any) => {
             <View style={styles.prixQuantite}>
                 <View style={styles.boxPrixQuantite}>
                     <Text style={styles.text}>Quantité : </Text>
-                    <Quantity id={pizza.id}  updateValue={updateValue}   /> 
+                    <Quantity id={pizza.id}  updateValue={updateValue} /> 
                 </View> 
                 <View style={styles.boxPrixQuantite}>
-                    <Text> {pizza.price} € </Text>
+                    <Text style={styles.totalPrice}> {prix.toFixed(2)} € </Text>
                 </View>
             </View>
         </View>
@@ -97,5 +99,9 @@ const styles = StyleSheet.create({
         marginTop: 4.5,
         marginRight: 5
     },
+    totalPrice: {
+        color: 'green',
+        fontWeight: 'bold'
+    }
 })
 
