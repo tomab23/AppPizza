@@ -1,16 +1,10 @@
 # AppPizza
 
-PostMan example =>
+commande pour start le projet : 
 
-    {
-"username": "00885522",
-"password": "567890"
-}
-
-// {
-// "firstname": "tata",
-// "lastname": "toto",
-// "password": "123456",
-// "phonenumber": "0606335533",
-// "address": "22 rue du test"
-// }
+ - npm install 
+ - npm install -g expo-cli
+ - npm install @react-navigation/native
+ - npx expo install react-native-screens react-native-safe-area-context
+ - npm install @react-navigation/native-stack
+ - npm install react-hook-form
